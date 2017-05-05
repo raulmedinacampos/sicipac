@@ -1,0 +1,89 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+header {
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	background-color: #FFFFFF;
+	-webkit-box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.75);
+}
+
+#logosWraper {
+	display: inline-flex;
+	width: 100%;
+	height: 100px;
+	align-items: center;
+}
+
+#logoIPN {
+    height: 80px;
+}
+
+#logoSEP {
+    height: 80px;
+}
+
+footer {
+	padding: 30px 0 20px;
+	color: #CCCCCC;
+	font-size: 12px;
+	text-align: center;
+	background: rgba(81,81,81,1);
+	background: -moz-linear-gradient(top, rgba(81,81,81,1) 0%, rgba(54,54,54,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(81,81,81,1)), color-stop(100%, rgba(54,54,54,1)));
+	background: -webkit-linear-gradient(top, rgba(81,81,81,1) 0%, rgba(54,54,54,1) 100%);
+	background: -o-linear-gradient(top, rgba(81,81,81,1) 0%, rgba(54,54,54,1) 100%);
+	background: -ms-linear-gradient(top, rgba(81,81,81,1) 0%, rgba(54,54,54,1) 100%);
+	background: linear-gradient(to bottom, rgba(81,81,81,1) 0%, rgba(54,54,54,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#515151', endColorstr='#363636', GradientType=0 );	
+}
+
+footer a:link {
+	color: #FFFFFF;
+}
+
+footer address {
+	margin: 0 0 10px;
+	font-size: 13px;
+}
+
+footer p {
+	margin: 0 0 2px;
+}
+
+/* Botones */
+.btn-primary {
+	background-color: #8C5069;
+	border-color: #8C5069;
+}
+
+.btn-primary,
+.btn-primary.active, 
+.btn-primary:active, 
+.btn-primary.focus, 
+.btn-primary:focus,
+.open > .dropdown-toggle.btn-primary {
+	background-color: #8C5069;
+	border-color: #6C1D45;
+}
+
+.btn-primary.active.focus, 
+.btn-primary.active:focus, 
+.btn-primary.active:hover, 
+.btn-primary.focus:active, 
+.btn-primary:active:focus, 
+.btn-primary:active:hover, 
+.open > .dropdown-toggle.btn-primary.focus, 
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary:hover {
+	background-color: #6C1D45;
+	border-color: #6C1D45;
+}
+
+.btn-primary:hover {
+	background-color: #6C1D45;
+	border-color: #6C1D45;
+}
