@@ -33,7 +33,41 @@ footer {
 	height: auto !important;
 }
 
+#main-content {
+	margin-left: 200px;
+}
+
+.wrapper {
+	display: inline-block;
+	padding: 15px;
+	margin-top: 45px;
+	width: 100%;
+}
+
+
+/********** Errores **********/
+
+.help-block {
+	text-align: left;
+}
+
+
 /********** Login **********/
+
+.tituloLogin {
+	padding: 0 0 8px;
+	margin-bottom: 40px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tituloLogin h2 {
+	font-size: 24px;
+	color: #FFFFFF;
+}
+
+.tituloLogin h2 span {
+	font-size: 30px;
+}
 
 #loginWrapper {
 	float: none;
@@ -514,20 +548,6 @@ ul.sidebar-menu li.active a i {
     padding: 10px;
 
 }
-
-.wrapper {
-
-    display: inline-block;
-
-    margin-top: 60px;
-
-    padding: 15px;
-
-    width: 100%;
-
-}
-
-
 
 a.logo {
 

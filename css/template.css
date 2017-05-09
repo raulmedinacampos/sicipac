@@ -23,6 +23,7 @@ header {
 }
 
 #logoSEP {
+	float: right;
     height: 80px;
 }
 

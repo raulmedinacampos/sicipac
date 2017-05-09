@@ -36,6 +36,7 @@
 		<script type="text/javascript" src="<?php echo base_url("js/bootstrap.min.js"); ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url("js/jquery.scrollTo.min.js"); ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url("js/jquery.nicescroll.js"); ?>"></script>
+		<script type="text/javascript" src="<?php echo base_url("js/jquery.validate.min.js"); ?>"></script>
 		<script type="text/javascript" src="<?php echo base_url("js/scripts.js"); ?>"></script>
 		
 		<!-- Bucle para jalar scripts por sección -->
