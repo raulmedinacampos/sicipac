@@ -3,48 +3,68 @@
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h3 class="page-header">Bases de procedimiento</h3>
+				<h2 class="page-header">Bases de procedimiento</h2>
 			</div>
 		</div>
 		
-		<button class="btn btn-primary pull-right"> <span class="glyphicon glyphicon-plus"></span> Agregar procedimiento</button>
-		
 		<div class="row">
-			<div class="panel">
-				<h4 class="panel-heading">Buscar procedimiento</h4>
-				<div class="panel-body">
-					<form method="post" action="">
-						<div class="row">
-							<div class="col-md-4">
-								<label>Tipo de operación</label>
-								<select class="form-control">
-								</select>
-							</div>
-							<div class="col-md-4">
-								<label>Clave</label>
-								<input type="text" class="form-control" />
-							</div>
-							<div class="col-md-4">
-								<label>Nombre</label>
-								<input type="text" class="form-control" />
+			<div class="col-md-9">
+				<!-- Buscador -->
+				<div class="panel-group">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" href="#collapse1">
+									<i class="icon_search"></i> Buscar procedimiento
+								</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="panel-collapse collapse">
+							<div class="panel-body">
+								<form method="post" action="">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<label>Tipo de operación</label>
+												<select class="form-control">
+													<option value="">Selecciona tipo</option>
+												</select>
+											</div>
+											<div class="col-md-2">
+												<label>Clave</label>
+												<input type="text" class="form-control" placeholder="Clave" />
+											</div>
+											<div class="col-md-6">
+												<label>Nombre</label>
+												<input type="text" class="form-control" placeholder="Nombre de procedimiento" />
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-12 text-right">
+												<button class="btn btn-default">Limpiar búsqueda</button>
+												<button class="btn btn-primary">Buscar</button>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-12 text-right">
-								<button class="btn btn-default">Limpiar formulario</button>
-								<button class="btn btn-default">Buscar</button>
-							</div>
-						</div>
-					</form>
-				</div>
+					</div>
+				</div>  <!-- Termina buscador -->
+			</div>
+		
+			<div class="col-md-3">
+				<a href="<?php echo base_url("procedimientos/nuevo-procedimiento"); ?>" class="btn btn-md btn-primary pull-right"> <span class="glyphicon glyphicon-plus"></span> Agregar procedimiento</a>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-lg-12">
 				<section class="panel">
-					<table class="table table-striped table-advance table-hover">
-						<tbody>
+					<table id="registros" class="table table-striped table-advance table-hover">
+						<thead>
 							<tr>
 								<th><i class="icon_profile"></i> Full Name</th>
 								<th><i class="icon_calendar"></i> Date</th>
@@ -53,6 +73,8 @@
 								<th><i class="icon_mobile"></i> Mobile</th>
 								<th><i class="icon_cogs"></i> Action</th>
 							</tr>
+						</thead>
+						<tbody>
 							<tr>
 								<td>Angeline Mcclain</td>
 								<td>2004-07-06</td>

@@ -2,59 +2,54 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-	
-	 function __construct(){
-		 
-        parent::__construct();
-		$this->load->model('login_model');
-		$this->load->helper('url');
-		
+	public function __construct() {
+		parent::__construct();
+		$this->load->model('login_md');
 	}
-
-	public function index(){
-
-		$err=0;
-		if($this->session->flashdata('error')!=NULL){	
+	
+	public function index() {		
+		$err = 0;//ver si hubo error en un intento anterior
+		
+		if ( $this->session->flashdata('error') != NULL ) {
 			$err=$this->session->flashdata('error');
 		}
-		$params=array("err"=>$err);		
-		$this->load->view('admin/head');
-		$this->load->view('admin/entrar',$params);
-		$this->load->view('admin/footer');
+		
+		$params = array("err"=>$err);
+		
+		//Cargar vista de login
+		$header['js'][] = 'login';
+		
+		$this->load->view('template/header', $header);
+		$this->load->view('login',$params);
+		$this->load->view('template/footer');
 	}
 		
-	public function validar(){
+	public function validar() {
+		$usuario = $this->input->post('username');
+		$password = $this->input->post('password');
+		$usr = $this->login_md->IsUser($usuario, $password);//revisar si va cifrada la contraseña
+		/*$redirect = base_url("login");
 		
-		/*
-		if($this->session->flashdata('ticket')!=null){	
-			$tck=$this->session->flashdata('ticket');
-		}
-		*/
+		if ( $usr > 0 ) {
+			$tipo = $usr->CTIPUSU;
+			$nom = trim($usr->CNOMBRE." ".$usr->CAPEPAT." ".$usr->CAPEMAT);
+			$num = $usr->NNUMEMP;
+			$cve = $usr->CCVEUSU;
+			$this->session->set_userdata(array("nom"=>$nom,"tipo"=>$tipo,"clave"=>$cve,"empleado"=>$num));
+			
+			switch ( $tipo ) {//ver tipos que existan
+				default:*/
+					$redirect = base_url("principal");
+					/*break;
+			}			
+		} else {
+			$this->session->set_flashdata("error", "1");
+		}*/
 		
-		$nag=$this->input->post('usr');
-		$pass=$this->input->post('contra');
-		$ag=$this->login_model->is_ag($nag,sha1($pass));
-		$redirect=base_url()."administrador/login";
-		if( count($ag)>0){
-			$nv=$ag[0]->id_nivel;
-			$nom=$ag[0]->nombre;
-			$id=$ag[0]->id;
-			$this->session->set_userdata(array("nom"=>$nom,"nv"=>$nv,"id_ad"=>$id));
-			$this->login_model->set_log($id);
-			$redirect=base_url()."administrador";
-						
-		}
-		else{
-			$this->session->set_flashdata('error',"1");
-		}
 		redirect($redirect);
 	}
 	
-		
-	public function cerrar(){
-		
-		$this->session->sess_destroy();
-		redirect(base_url());
+	public function cerrar() {
+		$this->login_md->Logout();
 	}
-	
 }

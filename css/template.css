@@ -56,6 +56,43 @@ footer p {
 }
 
 /* Botones */
+.btn-default {
+	background-color: #FFFFFF;
+	border-color: #6C1D45;
+	color: #6C1D45;
+}
+
+.btn-default,
+.btn-default.active, 
+.btn-default:active, 
+.btn-default.focus, 
+.btn-default:focus,
+.open > .dropdown-toggle.btn-default {
+	background-color: #FFFFFF;
+	border-color: #6C1D45;
+	color: #6C1D45;
+}
+
+.btn-default.active.focus, 
+.btn-default.active:focus, 
+.btn-default.active:hover, 
+.btn-default.focus:active, 
+.btn-default:active:focus, 
+.btn-default:active:hover, 
+.open > .dropdown-toggle.btn-default.focus, 
+.open > .dropdown-toggle.btn-default:focus, 
+.open > .dropdown-toggle.btn-default:hover {
+	background-color: #FFFFFF;
+	border-color: #6C1D45;
+	color: #6C1D45;
+}
+
+.btn-default:hover {
+	background-color: #6C1D45;
+	border-color: #6C1D45;
+	color: #FFFFFF;
+}
+
 .btn-primary {
 	background-color: #8C5069;
 	border-color: #8C5069;
@@ -87,4 +124,131 @@ footer p {
 .btn-primary:hover {
 	background-color: #6C1D45;
 	border-color: #6C1D45;
+}
+
+.btn-warning {
+	background-color: #FED189;
+	border-color: #FED189;
+	color: #562E3C;
+}
+
+.btn-warning,
+.btn-warning.active, 
+.btn-warning:active, 
+.btn-warning.focus, 
+.btn-warning:focus,
+.open > .dropdown-toggle.btn-warning {
+	background-color: #FED189;
+	border-color: #D8AA54;
+	color: #562E3C;
+}
+
+.btn-warning.active.focus, 
+.btn-warning.active:focus, 
+.btn-warning.active:hover, 
+.btn-warning.focus:active, 
+.btn-warning:active:focus, 
+.btn-warning:active:hover, 
+.open > .dropdown-toggle.btn-warning.focus, 
+.open > .dropdown-toggle.btn-warning:focus, 
+.open > .dropdown-toggle.btn-warning:hover {
+	background-color: #D8AA54;
+	border-color: #D8AA54;
+}
+
+.btn-warning:hover {
+	background-color: #D8AA54;
+	border-color: #D8AA54;
+}
+
+.btn-md {
+	padding: 10px 15px;
+}
+
+
+/* Tablas */
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+	background-color: #DDDDDD;
+}
+
+
+/* Paneles */
+.panel > .panel-heading {
+	margin-top: 0;
+}
+
+.panel-default {
+	border-color: #B4B3B1;
+}
+
+.panel-default > .panel-heading {
+	border-color: #B4B3B1;
+	background-color: #A0A0A0;
+	color: #FFFFFF;	
+}
+
+.panel-default > .panel-heading a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.panel-primary {
+	border-color: #6C1D45;
+}
+
+.panel-primary > .panel-heading {
+	border-color: #6C1D45;
+	background-color: #6C1D45;
+	color: #FFFFFF;	
+}
+
+.panel-primary > .panel-heading a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+
+/* Modal */
+.close {
+	font-size: 22px;
+	font-weight: normal;
+	color: #FFFFFF;
+	opacity: 0.75;
+}
+
+.close:focus, .close:hover {
+	color: #FFFFFF;
+	opacity: 1;
+}
+
+.modal-header {
+	background-color: #6C1D45;
+	color: #FFFFFF;
+	border-radius: 5px 5px 0 0;
+}
+
+
+/* Calendario */
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+	background-color: #6C1D45 !important;
+}
+
+.bootstrap-datetimepicker-widget table td.active.today:before {
+	border-bottom-color: #FFFFFF !important;
+}
+
+.bootstrap-datetimepicker-widget table td.today:before {
+	border-bottom-color: #6C1D45 !important;
+}
+
+.bootstrap-datetimepicker-widget a[data-action] {
+	color: #6C1D45;
+}
+
+
+/* Divisores */
+hr.estilo1 {
+	margin-top: 30px;
+	border-top: 2px solid #6C1D45; 
 }

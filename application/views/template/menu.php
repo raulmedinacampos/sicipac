@@ -17,7 +17,7 @@
 			<li class="dropdown">
 				<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 					<span class="glyphicon glyphicon-user"></span> 
-					<span class="username">Raúl Medina</span> 
+					<span class="username"><?php echo $this->session->nom; ?></span> 
 					<b class="caret"></b>
 				</a>
 				
@@ -30,7 +30,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>">
+						<a href="<?php echo base_url("login/cerrar"); ?>">
 							<i class="icon_key_alt"></i> 
 							Salir
 						</a>
@@ -48,7 +48,7 @@
 <aside>
 	<div id="sidebar" class="nav-collapse">
 		<ul class="sidebar-menu">
-			<li<?php if(uri_string() == "principal") {echo ' class="active"';} ?>>
+			<li<?php if($this->uri->segment(1) == "principal") {echo ' class="active"';} ?>>
 				<a class="" href="<?php echo base_url('principal'); ?>"> 
 					<i class="icon_house_alt"></i> 
 					<span>Inicio</span>
@@ -70,7 +70,7 @@
 					</li>
 				</ul>
 			</li>
-			<li<?php if(uri_string() == "procedimientos") {echo ' class="active"';} ?>>
+			<li<?php if($this->uri->segment(1)== "procedimientos") {echo ' class="active"';} ?>>
 				<a href="<?php echo base_url('procedimientos'); ?>" class=""> 
 					<i class="icon_desktop"></i> 
 					<span>Procedimientos</span>

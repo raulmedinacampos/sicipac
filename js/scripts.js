@@ -85,8 +85,26 @@ function initializeJS() {
             }, 2000)
         })
     }
-
+    
+    //ocultar menú superior
+    /*jQuery(window).on("scroll resize", function() {
+    	var dPos = $(document).scrollTop();
+    	
+    	//if ( dPos > 80 && h ) {
+    	if ( 99 + $(window).height() < $(document).height() ) {
+    		jQuery("#mainWrapper").animate({"marginTop": "0px"}, 100);
+    		//jQuery("header").slideUp();
+    		jQuery("header").animate({"marginTop": "-110px"}, 100);
+    	} else {
+    		jQuery("#mainWrapper").animate({"marginTop": "110px"}, 100);
+    		//jQuery("header").slideDown();
+    		jQuery("header").animate({"marginTop": "0px"}, 100);
+    	}
+    });*/
+    
+    
 }
+
 
 jQuery(document).ready(function(){
     initializeJS();

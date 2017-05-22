@@ -8,7 +8,14 @@
 	
 	<div id="loginWrapper" class="col-md-4 col-sm-5">
 		<h3>Ingreso al sistema</h3>
-		<form id="formLogin" name="formLogin" method="post" action="<?php echo base_url("principal"); ?>">
+		<form id="formLogin" name="formLogin" method="post" action="<?php echo base_url("login/validar"); ?>">
+			<?php
+				if ( isset($err) && $err ) {
+			?>
+				<p class="bg-danger">El usuario o la contraseña son incorrectos. Favor de verificarlos.</p>
+			<?php
+				}
+			?>
 			<div class="form-group">
 				<label>Usuario</label>
 				<div class="input-group">
@@ -29,7 +36,7 @@
 				</div>
 			</div>
 			
-			<p><button id="btnIngresar" name="btnIngresar" class="btn btn-primary">Ingresar</button></p>
+			<p><button id="btnIngresar" name="btnIngresar" class="btn btn-block btn-primary">Ingresar</button></p>
 		</form>
 	</div> <!-- #loginWrapper -->
 </div>

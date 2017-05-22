@@ -7,7 +7,7 @@
 	    <meta name="description" content="Descripción del sistema">
 	    <meta name="author" content="UDS">
 		
-		<title><?php if (isset($titulo)) {echo " - ".$titulo;} ?>SICIPAC</title>
+		<title><?php if (isset($titulo)) {echo $titulo." - ";} ?>SICIPAC</title>
 		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
@@ -51,7 +51,7 @@
 		?>
 	</head>
 	
-	<body<?php if(uri_string() == "") {echo ' class="login"';} ?>>
+	<body<?php if(uri_string() == "login") {echo ' class="login"';} ?>>
 		<!-- Header -->
 		<header>
 			<div id="logosWraper" class="container">
