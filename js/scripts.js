@@ -59,13 +59,13 @@ function initializeJS() {
                 'margin-left': '0px'
             });
             jQuery('#sidebar').css({
-                'margin-left': '-200px'
+                'margin-left': '-220px'
             });
             jQuery('#sidebar > ul').hide();
             jQuery("#container").addClass("sidebar-closed");
         } else {
             jQuery('#main-content').css({
-                'margin-left': '200px'
+                'margin-left': '220px'
             });
             jQuery('#sidebar > ul').show();
             jQuery('#sidebar').css({
@@ -87,8 +87,32 @@ function initializeJS() {
     }
     
     //ocultar menú superior
-    /*jQuery(window).on("scroll resize", function() {
-    	var dPos = $(document).scrollTop();
+    
+    
+    /*
+    $(function(){
+var lastScrollTop = 0, delta = 5;
+$(window).scroll(function(event){
+   var st = $(this).scrollTop();
+
+   if(Math.abs(lastScrollTop - st) <= delta)
+      return;
+
+   if (st > lastScrollTop){
+       // downscroll code
+       $("#header").css('visibility','hidden').hover ()
+   } else {
+      // upscroll code
+      $("#header").css('visibility','visible');
+   }
+   lastScrollTop = st;
+});
+});
+     
+    */
+    
+    jQuery(window).on("load resize scroll", function() {
+    	/*var dPos = $(document).scrollTop();
     	
     	//if ( dPos > 80 && h ) {
     	if ( 99 + $(window).height() < $(document).height() ) {
@@ -99,10 +123,8 @@ function initializeJS() {
     		jQuery("#mainWrapper").animate({"marginTop": "110px"}, 100);
     		//jQuery("header").slideDown();
     		jQuery("header").animate({"marginTop": "0px"}, 100);
-    	}
-    });*/
-    
-    
+    	}*/
+    });
 }
 
 

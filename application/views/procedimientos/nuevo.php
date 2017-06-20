@@ -3,7 +3,7 @@
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="page-header">Nueva base de procedimiento</h2>
+				<h2 class="page-header">Nuevo procedimiento</h2>
 			</div>
 		</div>
 		
@@ -14,7 +14,7 @@
 			<li role="presentation"><a href="#visitas" aria-controls="visitas" role="tab" data-toggle="tab">Visitas</a></li>
 			<li role="presentation"><a href="#aclaraciones" aria-controls="aclaraciones" role="tab" data-toggle="tab">Aclaraciones</a></li>
 			<li role="presentation"><a href="#partidas" aria-controls="partidas" role="tab" data-toggle="tab">Partidas</a></li>
-			<li role="presentation"><a href="#participantes" aria-controls="participantes" role="tab" data-toggle="tab">Participantes</a></li>
+			<li role="presentation"><a href="#proveedores" aria-controls="proveedores" role="tab" data-toggle="tab">Proveedores</a></li>
 		</ul>
 		
 		<!-- Paneles -->
@@ -27,12 +27,21 @@
 								<label>Tipo de operación:</label>
 								<select class="form-control">
 									<option value="">Selecciona tipo</option>
+									<?php
+									foreach ($tipo_operacion as $val) {
+									?>
+									<option value="<?php echo $val->id; ?>"><?php echo $val->tipo; ?></option>
+									<?php
+									}
+									?>
 								</select>
 							</div>
 							<div class="col-md-6">
 								<label>Procedencia:</label>
 								<select class="form-control">
 									<option value="">Selecciona procedencia</option>
+									<option value="N">Nacional</option>
+									<option value="I">Internacional</option>
 								</select>
 							</div>
 						</div>
@@ -40,11 +49,28 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-6">
-								<label>Clave de la base:</label>
-								<input type="text" class="form-control" placeholder="Ingresa clave" />
+								<label>Caracter del procedimiento:</label>
+								<select class="form-control">
+									<option value="">Selecciona tipo</option>
+									<?php
+									foreach ($caracter_procedimiento as $val) {
+									?>
+									<option value="<?php echo $val->id; ?>"><?php echo $val->tipo; ?></option>
+									<?php
+									}
+									?>
+								</select>
 							</div>
 							<div class="col-md-6">
-								<label>Nombre de la base:</label>
+								<label>Número del procedimiento:</label>
+								<input type="text" class="form-control" placeholder="Ingresa clave" />
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="row">
+							<div class="col-md-12">
+								<label>Descripción del procedimiento:</label>
 								<input type="text" class="form-control" placeholder="Ingresa nombre" />
 							</div>
 						</div>
@@ -111,27 +137,10 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-6">
-								<label>Fecha de entrega:</label>
+								<label>Fecha de entrega o ejecución del servicio:</label>
 								<div class="input-group date datepicker">
 									<input type="text" class="form-control" placeholder="Ingresa fecha" />
 									<div class="input-group-addon"><i class="icon_calendar"></i></div>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<label>Horario de entrega:</label>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="input-group date timepicker">
-											<input type="text" class="form-control" placeholder="Ingresa horario" />
-											<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="input-group date timepicker">
-											<input type="text" class="form-control" placeholder="Ingresa horario" />
-											<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -190,6 +199,7 @@
 								<td>Ricardo Sánchez Estrada</td>
 								<td class="text-center">
 									<span class="glyphicon glyphicon-pencil"></span> 
+									<span class="icon_documents_alt"></span> 
 									<span class="glyphicon glyphicon-trash"></span>
 								</td>
 							</tr>
@@ -200,6 +210,7 @@
 								<td>Victor Cuadros Lopez</td>
 								<td class="text-center">
 									<span class="glyphicon glyphicon-pencil"></span> 
+									<span class="icon_documents_alt"></span> 
 									<span class="glyphicon glyphicon-trash"></span>
 								</td>
 							</tr>
@@ -310,9 +321,9 @@
 						</tbody>
 					</table>
 				</div>  <!-- Fin partidas -->
-				<div role="tabpanel" class="tab-pane" id="participantes">
+				<div role="tabpanel" class="tab-pane" id="proveedores">
 					<div class="form-group">
-						<button type="button" id="btnNuevoParticipante" class="btn btn-md btn-default" data-toggle="modal" data-target="#modalParticipante"> <span class="glyphicon glyphicon-plus"></span> Nuevo participante</button>
+						<button type="button" id="btnNuevoProveedor" class="btn btn-md btn-default" data-toggle="modal" data-target="#modalProveedor"> <span class="glyphicon glyphicon-plus"></span> Nuevo proveedor</button>
 					</div>
 					<table class="table">
 						<thead>

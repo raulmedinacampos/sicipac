@@ -1,3 +1,6 @@
+function Inicializar() {
+	$("#username").focus();
+}
 function Validar() {
 	$("#formLogin").validate({
 		errorElement: "span",
@@ -35,10 +38,6 @@ function Validar() {
 }
 
 $(function() {
+	Inicializar();
 	Validar();
-	/*$("#btnIngresar").click(function(e) {
-		e.preventDefault;
-		
-		
-	});*/
-})
+});

@@ -52,13 +52,14 @@
 	</head>
 	
 	<body<?php if(uri_string() == "login") {echo ' class="login"';} ?>>
-		<!-- Header -->
-		<header>
-			<div id="logosWraper" class="container">
-				<div class="col-xs-3"><img id="logoCOFAA" alt="COFAA" src="<?php echo base_url("images/cofaa.png"); ?>" class="img-responsive" /></div>
-				<div class="col-xs-3"><img id="logoIPN" alt="IPN" src="<?php echo base_url("images/ipn.png"); ?>" class="img-responsive" /></div>
-				<div class="col-xs-offset-3 col-xs-3"><img id="logoSEP" alt="SEP" src="<?php echo base_url("images/sep.png"); ?>" class="img-responsive" /></div>
-			</div>
-		</header>
-		
-		<div id="mainWrapper">  <!-- Contenedor principal -->
+		<div id="siteWrapper">  <!-- Contenedor para ajustar altura al 100% -->
+			<!-- Header -->
+			<header>
+				<div id="logosWraper" class="container">
+					<div class="col-xs-3"><img id="logoCOFAA" alt="COFAA" src="<?php echo base_url("images/cofaa.png"); ?>" class="img-responsive" /></div>
+					<div class="hidden-xs col-xs-3"><img id="logoIPN" alt="IPN" src="<?php echo base_url("images/ipn.png"); ?>" class="img-responsive" /></div>
+					<div class="hidden-xs col-xs-offset-3 col-xs-3"><img id="logoSEP" alt="SEP" src="<?php echo base_url("images/sep.png"); ?>" class="img-responsive" /></div>
+				</div>
+			</header>
+			
+			<div id="mainWrapper">  <!-- Contenedor de las secciones -->

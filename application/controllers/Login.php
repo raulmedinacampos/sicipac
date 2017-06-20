@@ -28,7 +28,7 @@ class Login extends CI_Controller {
 		$usuario = $this->input->post('username');
 		$password = $this->input->post('password');
 		$usr = $this->login_md->IsUser($usuario, $password);//revisar si va cifrada la contraseña
-		/*$redirect = base_url("login");
+		$redirect = base_url("login");
 		
 		if ( $usr > 0 ) {
 			$tipo = $usr->CTIPUSU;
@@ -38,13 +38,13 @@ class Login extends CI_Controller {
 			$this->session->set_userdata(array("nom"=>$nom,"tipo"=>$tipo,"clave"=>$cve,"empleado"=>$num));
 			
 			switch ( $tipo ) {//ver tipos que existan
-				default:*/
+				default:
 					$redirect = base_url("principal");
-					/*break;
+					break;
 			}			
 		} else {
 			$this->session->set_flashdata("error", "1");
-		}*/
+		}
 		
 		redirect($redirect);
 	}

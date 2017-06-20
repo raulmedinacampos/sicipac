@@ -30,14 +30,24 @@ footer {
 	z-index: 999;
 }
 
+#siteWrapper {
+	position: relative;
+	height: 100%;
+	overflow: auto;
+}
+
+.nav-up {
+    top: -40px;
+}
+
 #mainWrapper {
-	min-height: calc(100% - 136px);
+	min-height: calc(100% - 246px);
 	height: auto !important;
 	margin-top: 110px;
 }
 
 #main-content {
-	margin-left: 200px;
+	margin-left: 220px;
 }
 
 .wrapper {
@@ -126,7 +136,7 @@ footer {
 
 #sidebar {
 	position: fixed;
-	width: 200px;
+	width: 220px;
 	height: 100%;
 	background-color: #FFFFFF;
 	-webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.75);

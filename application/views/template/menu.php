@@ -56,7 +56,7 @@
 			</li>
 			<li class="sub-menu">
 				<a href="javascript:;" class=""> 
-					<i class="icon_document_alt"></i> 
+					<i class="icon_documents_alt"></i> 
 					<span>Catálogos</span> 
 					<span class="menu-arrow arrow_carrot-right"></span>
 				</a>
@@ -77,27 +77,43 @@
 				</a>
 			</li>
 			<li>
-				<a href="javascript:;" class=""> 
-					<i class="icon_desktop"></i> 
-					<span>Licitaciones</span>
+				<a class="" href="widgets.html"> 
+					<i class="icon_bag_alt"></i> 
+					<span>Proveedores</span>
 				</a>
 			</li>
+			<li class="sub-menu <?php if($this->uri->segment(1)== "pedidos") {echo 'selected';} ?>">
+				<a href="javascript:;" class=""> 
+					<i class="icon_pens"></i> 
+					<span>Pedidos</span> 
+					<span class="menu-arrow arrow_carrot-right"></span>
+				</a>
+
+				<ul class="sub">
+					<li>
+						<a class="" href="<?php echo base_url("pedidos"); ?>">Pedido</a>
+					</li>
+					<li>
+						<a class="" href="basic_table.html">Modificación</a>
+					</li>
+				</ul>
+			</li>
 			<li>
-				<a class="" href="widgets.html"> 
-					<i class="icon_genius"></i> 
-					<span>Proveedores</span>
+				<a class="" href="chart-chartjs.html"> 
+					<i class="icon_tools"></i>
+					<span>Contratos</span>
 				</a>
 			</li>
 			<li>
 				<a class="" href="chart-chartjs.html"> 
 					<i class="icon_piechart"></i>
-					<span>Pedidos</span>
+					<span>Reportes y estadísticas</span>
 				</a>
 			</li>
 			<li class="sub-menu">
 				<a href="javascript:;" class=""> 
-					<i class="icon_table"></i> 
-					<span>Almacén</span> 
+					<i class="icon_dislike"></i> 
+					<span>Sanciones</span> 
 					<span class="menu-arrow arrow_carrot-right"></span>
 				</a>
 

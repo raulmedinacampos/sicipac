@@ -65,7 +65,7 @@
 										</select>
 									</div>
 									<div class="col-md-6">
-										<label>Aula / sala:</label>
+										<label>Locación:</label>
 										<input type="text" class="form-control" placeholder="Ingresa el aula o sala" />
 									</div>
 								</div>

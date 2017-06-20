@@ -15,18 +15,25 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-6">
-								<label>Fecha:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
+								<label>Fecha y hora:</label>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="input-group date datepicker">
+											<input type="text" class="form-control" placeholder="Ingresa fecha" />
+											<div class="input-group-addon"><i class="icon_calendar"></i></div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group date timepicker">
+											<input type="text" class="form-control" placeholder="Ingresa horario" />
+											<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="col-md-6">
-								<label>Hora:</label>
-								<div class="input-group date timepicker">
-									<input type="text" class="form-control" placeholder="Ingresa horario" />
-									<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
-								</div>
+								<label>Partidas:</label>
+								<input type="text" class="form-control" placeholder="Ingrese las partidas" />
 							</div>
 						</div>
 					</div>
@@ -45,8 +52,8 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-6">
-								<label>Partidas:</label>
-								<input type="text" class="form-control" placeholder="Ingrese las partidas" />
+								<label>Responsable del área usuaria:</label>
+								<input type="text" class="form-control" placeholder="Nombre del responsable" />
 							</div>
 							<div class="col-md-6">
 								<label>Responsable técnica:</label>

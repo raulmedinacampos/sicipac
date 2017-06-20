@@ -15,7 +15,7 @@ function Init() {
 		    "sZeroRecords": "No se encontraron resultados"
 	    },
 	    "bLengthChange": false,
-		"pageLength": 10
+		"pageLength": 3
 	});
 }
 
