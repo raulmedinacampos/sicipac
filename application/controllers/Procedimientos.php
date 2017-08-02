@@ -1,5 +1,9 @@
 <?php
 	class Procedimientos extends CI_Controller {
+		public function __construct() {
+			parent::__construct();
+			$this->load->model('procedimiento_md');
+		}
 		public function index() {
 			$header["titulo"] = "Procedimientos";
 			$header["js"][] = "jquery.dataTables.min";
@@ -22,11 +26,10 @@
 			$header["js"][] = "fileinput.min";
 			$header["js"][] = "nuevo_procedimiento";
 			
-			$this->load->model('tipo_operacion_md');
-			$this->load->model('caracter_procedimiento_md');
-			
-			$data['tipo_operacion'] = $this->tipo_operacion_md->getOpTypes();
-			$data['caracter_procedimiento'] = $this->caracter_procedimiento_md->getProcTypes();
+			$data['tipo_operacion'] = $this->procedimiento_md->GetOperationType();
+			$data['procedencia'] = $this->procedimiento_md->GetOrigenType();
+			$data['caracter_procedimiento'] = $this->procedimiento_md->getProcType();
+			$data['medida'] = $this->procedimiento_md->GetOrigenType();
 			
 			$this->load->view('template/header', $header);
 			$this->load->view('template/menu');

@@ -30,7 +30,7 @@
 									<?php
 									foreach ($tipo_operacion as $val) {
 									?>
-									<option value="<?php echo $val->id; ?>"><?php echo $val->tipo; ?></option>
+									<option value="<?php echo $val->CCVLICI; ?>"><?php echo $val->CLICITA; ?></option>
 									<?php
 									}
 									?>
@@ -40,8 +40,13 @@
 								<label>Procedencia:</label>
 								<select class="form-control">
 									<option value="">Selecciona procedencia</option>
-									<option value="N">Nacional</option>
-									<option value="I">Internacional</option>
+									<?php
+									foreach ($procedencia as $val) {
+									?>
+									<option value="<?php echo $val->NORIGEN; ?>"><?php echo $val->CDESCRI; ?></option>
+									<?php
+									}
+									?>
 								</select>
 							</div>
 						</div>
@@ -55,7 +60,7 @@
 									<?php
 									foreach ($caracter_procedimiento as $val) {
 									?>
-									<option value="<?php echo $val->id; ?>"><?php echo $val->tipo; ?></option>
+									<option value="<?php echo $val->IDTIPOPROCEDIMIENTO; ?>"><?php echo $val->TIPOPROCEDIMIENTO; ?></option>
 									<?php
 									}
 									?>
@@ -137,10 +142,20 @@
 					<div class="form-group">
 						<div class="row">
 							<div class="col-md-6">
-								<label>Fecha de entrega o ejecución del servicio:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
+								<label>Período de ejecución del servicio:</label>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="input-group date datepicker">
+											<input type="text" class="form-control" placeholder="Ingresa fecha" />
+											<div class="input-group-addon"><i class="icon_calendar"></i></div>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="input-group date datepicker">
+											<input type="text" class="form-control" placeholder="Ingresa fecha" />
+											<div class="input-group-addon"><i class="icon_calendar"></i></div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

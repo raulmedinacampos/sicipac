@@ -24,8 +24,12 @@
 						<div role="tabpanel" class="tab-pane active" id="p_generales">
 							<div class="form-group">
 								<div class="row">
-									<div class="col-md-12">
+									<div class="col-md-6">
 										<label>Partida número: 1</label>
+									</div>
+									<div class="col-md-6">
+										<label>Lote:</label>
+										<input type="text" class="form-control" placeholder="Ingresa lote" />
 									</div>
 								</div>
 							</div>
@@ -65,7 +69,7 @@
 										</select>
 									</div>
 									<div class="col-md-6">
-										<label>Locación:</label>
+										<label>Aula o taller:</label>
 										<input type="text" class="form-control" placeholder="Ingresa el aula o sala" />
 									</div>
 								</div>

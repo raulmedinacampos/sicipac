@@ -1,22 +1,13 @@
-function Inicializar() {
-	$('#password').keypress(function(e) {
-		var s = String.fromCharCode(e.which);
+function Init() {
+	$("#btn-unidad").click(function(e) {
+		e.preventDefault();
 		
-		if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-			if ( !$(".bubble").is(":visible") ) {
-				$(".bubble").fadeIn();
-			}
-		} else {
-			if ( $(".bubble").is(":visible") ) {
-				$(".bubble").fadeOut();
-			}
-		}
+		$("#modalUnidad").modal("show");
 	});
-	
-	$("#username").focus();
 }
+
 function Validar() {
-	$("#formLogin").validate({
+	$("#formUnidades").validate({
 		errorElement: "span",
 		errorClass: "help-block",
 		errorPlacement: function(error, element) {
@@ -33,25 +24,25 @@ function Validar() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
-			username: {
+			clave: {
 				required: true
 			},
-			password: {
+			siglas: {
+				required: true
+			},
+			unidad: {
 				required: true
 			}
 		},
 		messages: {
-			username: {
-				required: "Ingresa el usuario"
-			},
-			password: {
-				required: "Ingresa la contraseña"
-			}
+			clave: "Campo obligatorio",
+			siglas: "Campo obligatorio",
+			unidad: "Campo obligatorio"
 		}
 	});
 }
 
 $(function() {
-	Inicializar();
+	Init();
 	Validar();
 });

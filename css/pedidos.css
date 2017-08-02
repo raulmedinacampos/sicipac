@@ -1,0 +1,60 @@
+.panel {
+	overflow: hidden;
+}
+
+.table td {
+	cursor: pointer;
+}
+
+.header-fixed {
+	width: 100%;
+	font-size: 12px;
+}
+
+.header-fixed > thead,
+.header-fixed > tbody,
+.header-fixed > thead > tr,
+.header-fixed > tbody > tr,
+.header-fixed > thead > tr > th,
+.header-fixed > tbody > tr > td {
+	display: block;
+}
+
+.header-fixed > tbody > tr:after,
+.header-fixed > thead > tr:after {
+	content: ' ';
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+.header-fixed > tbody {
+	height: 200px;
+	overflow-y: auto;
+}
+
+.header-fixed > tbody > tr > td,
+.header-fixed > thead > tr > th {
+	float: left;
+	width: 17%;
+}
+
+.header-fixed > tbody > tr > td:first-child,
+.header-fixed > thead > tr > th:first-child {
+	float: left;
+	width: 10%;
+}
+
+.header-fixed > tbody > tr > td:nth-child(2) {
+	float: left;
+	width: 56%;
+}
+
+.header-fixed > thead > tr > th:nth-child(2) {
+	float: left;
+	width: 54%;
+}
+
+.table tr.selected {
+	background-color: #FED189 !important;
+}

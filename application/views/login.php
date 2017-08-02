@@ -27,6 +27,7 @@
 			</div>
 			
 			<div class="form-group">
+				<div class="bubble">Mayúsculas activadas</div>
 				<label>Contraseña</label>
 				<div class="input-group">
 					<div class="input-group-addon">

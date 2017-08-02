@@ -14,17 +14,17 @@ class Pedidos extends CI_Controller {
 	public function nuevo_pedido() {
 		$header["titulo"] = "Nuevo pedido";
 		$header["css"][] = "bootstrap-datetimepicker.min";
-		$header["css"][] = "fileinput.min";
+		$header["css"][] = "pedidos";
 		
 		$header["js"][] = "moment";
 		$header["js"][] = "bootstrap-datetimepicker.min";
-		$header["js"][] = "ckeditor/ckeditor";
-		$header["js"][] = "fileinput.min";
-		$header["js"][] = "nuevo_procedimiento";
+		$header["js"][] = "nuevo_pedido";
 		
 		$this->load->view('template/header', $header);
 		$this->load->view('template/menu');
 		$this->load->view('pedidos/nuevo');
+		$this->load->view('pedidos/modal_partida');
+		$this->load->view('pedidos/modal_partida_detalle');
 		$this->load->view('template/footer');
 	}
 	

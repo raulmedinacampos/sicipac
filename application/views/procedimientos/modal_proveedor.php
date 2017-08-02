@@ -50,8 +50,10 @@
 							<div class="form-group">
 								<div class="row">
 									<div class="col-md-6">
-										<label>Nombre del documento:</label>
-										<input type="text" class="form-control" placeholder="Ingresa el nombre del documento" />
+										<label>Documento:</label>
+										<select class="form-control">
+											<option>Selecciona</option>
+										</select>
 									</div>
 									<div class="col-md-6">
 										<label>Adjuntar documento:</label>

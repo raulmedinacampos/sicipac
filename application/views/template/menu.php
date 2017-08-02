@@ -54,19 +54,28 @@
 					<span>Inicio</span>
 				</a>
 			</li>
-			<li class="sub-menu">
+			<li class="sub-menu <?php if($this->uri->segment(1)== "configuracion") {echo 'selected';} ?>">
 				<a href="javascript:;" class=""> 
-					<i class="icon_documents_alt"></i> 
-					<span>Catálogos</span> 
+					<i class="icon_cogs"></i> 
+					<span>Configuración</span> 
 					<span class="menu-arrow arrow_carrot-right"></span>
 				</a>
 
 				<ul class="sub">
 					<li>
-						<a class="" href="form_component.html">Catálogo 1</a>
+						<a class="" href="<?php echo base_url('configuracion/areas-administrativas'); ?>">Áreas administrativas</a>
 					</li>
 					<li>
-						<a class="" href="form_validation.html">Catálogo 2</a>
+						<a class="" href="<?php echo base_url('configuracion/puestos-laborales'); ?>">Puestos laborales</a>
+					</li>
+					<li>
+						<a class="" href="<?php echo base_url('configuracion/unidades'); ?>">Unidades de medida</a>
+					</li>
+					<li>
+						<a class="" href="<?php echo base_url('configuracion/unidades-responsables'); ?>">Unidades responsables</a>
+					</li>
+					<li>
+						<a class="" href="<?php echo base_url('configuracion/usuarios'); ?>">Usuarios</a>
 					</li>
 				</ul>
 			</li>
@@ -98,30 +107,27 @@
 					</li>
 				</ul>
 			</li>
-			<li>
-				<a class="" href="chart-chartjs.html"> 
-					<i class="icon_tools"></i>
+			<li class="sub-menu <?php if($this->uri->segment(1)== "contratos") {echo 'selected';} ?>">
+				<a href="javascript:;" class=""> 
+					<i class="icon_documents_alt"></i>
 					<span>Contratos</span>
+					<span class="menu-arrow arrow_carrot-right"></span>
 				</a>
+				
+				<ul class="sub">
+					<li>
+						<a class="" href="<?php echo base_url("contratos"); ?>">Contrato</a>
+					</li>
+					<li>
+						<a class="" href="basic_table.html">Sanciones</a>
+					</li>
+				</ul>
 			</li>
 			<li>
 				<a class="" href="chart-chartjs.html"> 
 					<i class="icon_piechart"></i>
 					<span>Reportes y estadísticas</span>
 				</a>
-			</li>
-			<li class="sub-menu">
-				<a href="javascript:;" class=""> 
-					<i class="icon_dislike"></i> 
-					<span>Sanciones</span> 
-					<span class="menu-arrow arrow_carrot-right"></span>
-				</a>
-
-				<ul class="sub">
-					<li>
-						<a class="" href="basic_table.html">Almacén 1</a>
-					</li>
-				</ul>
 			</li>
 		</ul>
 	</div>

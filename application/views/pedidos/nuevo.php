@@ -100,96 +100,41 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Descripción corta</th>
-								<th>Unidad</th>
+								<th>Partida</th>
+								<th>Descripción</th>
 								<th>Cantidad</th>
-								<th class="text-center">Detalle</th>
-								<th class="text-center">Eliminar</th>
+								<th>Unidad</th>
+								<th class="text-nowrap">Precio unitario neto</th>
+								<th class="text-nowrap">Precio total neto</th>
+								<th class="text-center">Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>Lápiz HB</td>
-								<td>caja</td>
-								<td>25</td>
+								<td>87</td>
+								<td>Picnómetro de 10 milímetros marca Kavalier, catálogo ELSON11016</td>
+								<td>6</td>
+								<td>pieza</td>
+								<td>158.00</td>
+								<td>948.00</td>
 								<td class="text-center">
 									<span class="icon_documents_alt"></span> 
-								</td>
-								<td class="text-center">
-									<span class="glyphicon glyphicon-trash"></span>
-								</td>
-							</tr>
-							<tr>
-								<td class="w3-center">2</td>
-								<td>Lápiz 2B</td>
-								<td class="w3-center">caja</td>
-								<td class="w3-center">30</td>
-								<td class="text-center">
-									<span class="icon_documents_alt"></span>
-								</td>
-								<td class="text-center">
-									<span class="glyphicon glyphicon-trash"></span>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>  <!-- Fin partidas -->
-				<div role="tabpanel" class="tab-pane" id="proveedores">
-					<div class="form-group">
-						<button type="button" id="btnNuevoProveedor" class="btn btn-md btn-default" data-toggle="modal" data-target="#modalProveedor"> <span class="glyphicon glyphicon-plus"></span> Nuevo proveedor</button>
-					</div>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Nombre</th>
-								<th>RFC</th>
-								<th class="text-center">Partidas</th>
-								<th class="text-center">Modificar</th>
-								<th class="text-center">Eliminar</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Papelería Express SA de CV</td>
-								<td>PAP980101XYZ</td>
-								<td class="text-center">
-									<span class="icon_documents_alt"></span>
-								</td>
-								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</td>
-								<td class="text-center">
+									<span class="glyphicon glyphicon-pencil"></span> 
 									<span class="glyphicon glyphicon-trash"></span>
 								</td>
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>Proveedores de oficinas SA de CV</td>
-								<td>PRO080507ABC</td>
-								<td class="text-center">
-									<span class="icon_documents_alt"></span>
-								</td>
-								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</td>
-								<td class="text-center">
-									<span class="glyphicon glyphicon-trash"></span>
-								</td>
-							</tr>
-							<tr>
+								<td>113</td>
+								<td>Taqman SNP Asay Mto marca Applied Biosystems, catálogo 4351359</td>
 								<td>3</td>
-								<td>Surtidora de empresas SA de CV</td>
-								<td>SUR051231FGH</td>
+								<td>pieza</td>
+								<td>7,254.00</td>
+								<td>21,762.00</td>
 								<td class="text-center">
-									<span class="icon_documents_alt"></span>
-								</td>
-								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</td>
-								<td class="text-center">
+									<span class="icon_documents_alt"></span> 
+									<span class="glyphicon glyphicon-pencil"></span> 
 									<span class="glyphicon glyphicon-trash"></span>
 								</td>
 							</tr>

@@ -1,22 +1,25 @@
-function Inicializar() {
-	$('#password').keypress(function(e) {
-		var s = String.fromCharCode(e.which);
+function Init() {
+	$("#btn-usuario").click(function(e) {
+		e.preventDefault();
 		
-		if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-			if ( !$(".bubble").is(":visible") ) {
-				$(".bubble").fadeIn();
-			}
-		} else {
-			if ( $(".bubble").is(":visible") ) {
-				$(".bubble").fadeOut();
-			}
-		}
+		$("#modalUsuario").modal("show");
 	});
 	
-	$("#username").focus();
+	$("#btnDatos").click(function(e) {
+		e.preventDefault();
+		
+		if ( $("#correo").valid() ) {
+			$("#nomUsuario").val($("#correo").val());
+			$("#password").val($("#correo").val()+Math.floor((Math.random() * 999) + 1));
+			
+			$(".div-oculto").css("display", "block");
+			$(".div-btn-datos").css("display", "none");
+		}
+	});
 }
+
 function Validar() {
-	$("#formLogin").validate({
+	$("#formUsuarios").validate({
 		errorElement: "span",
 		errorClass: "help-block",
 		errorPlacement: function(error, element) {
@@ -33,25 +36,21 @@ function Validar() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
-			username: {
+			nombre: {
 				required: true
 			},
-			password: {
+			correo: {
 				required: true
 			}
 		},
 		messages: {
-			username: {
-				required: "Ingresa el usuario"
-			},
-			password: {
-				required: "Ingresa la contraseña"
-			}
+			nombre: "Campo obligatorio",
+			correo: "Campo obligatorio"
 		}
 	});
 }
 
 $(function() {
-	Inicializar();
+	Init();
 	Validar();
 });

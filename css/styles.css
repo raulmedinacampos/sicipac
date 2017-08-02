@@ -66,6 +66,49 @@ footer {
 	display: none;
 }
 
+#registros .glyphicon {
+	margin: 0 2px;
+	cursor: pointer;
+}
+
+.bubble {
+	position: absolute;
+	display: none;
+	top: 145px;
+	right: 30px;
+	padding: 5px 20px;
+	background-color: #F4C400;
+	border-radius: 8px;
+	border: 1px solid #E1AE00;
+	font-size: 12px;
+}
+
+.bubble:after {
+	position: absolute;
+	display: block;
+	bottom: -9px;
+	left: 56px;
+	width: 0;
+	content: '';
+	border-style: solid;
+	border-width: 9px 10px 0;
+	border-color: #F4C400 transparent;
+	z-index: 1;
+}
+
+.bubble:before {
+	position: absolute;
+	display: block;
+	bottom: -10px;
+	left: 54px;
+	content: '';
+	width: 0;
+	border-style: solid;
+	border-width: 10px 12px 0;
+	border-color: #E1AE00 transparent;
+	z-index: 0;
+}
+
 
 /********** Errores **********/
 
@@ -364,6 +407,12 @@ ul.sidebar-menu li.active a, ul.sidebar-menu li a:hover, ul.sidebar-menu li a:fo
 
     transition: all 0.3s ease;        
 
+}
+
+ul.sidebar-menu li.selected, 
+ul.sidebar-menu li.selected a {
+	background-color: #6C1D45;
+	color: #FFFFFF;
 }
 
 ul.sidebar-menu li a:hover, ul.sidebar-menu li a:focus {
@@ -1172,6 +1221,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	border-bottom-color: #8C5069;
 }
 
-.div-aclaracion {
+.div-aclaracion, 
+.div-oculto {
 	display: none;
 }
