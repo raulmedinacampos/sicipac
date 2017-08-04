@@ -1,12 +1,88 @@
-function Init() {
+function AddUnit() {
 	$("#btn-unidad").click(function(e) {
 		e.preventDefault();
+		
+		$("#modalUnidad .modal-header .modal-title").html("Agregar unidad responsable");
+		$("#modalUnidad .modal-footer .btn-primary").html("Guardar");
+		
+		$('#modalUnidad .modal-body input[type="text"]').each(function() {
+			$(this).val("");
+		});
+		
+		$("#modalUnidad .modal-body textarea").each(function() {
+			$(this).val("");
+		});
+		
+		$("#modalUnidad .modal-body select").each(function() {
+			$(this).val("");
+		});
+		
+		$('input[name="activo"]').each(function() {
+			if ( $(this).val() == "S" ) {
+				$(this).trigger("click");
+			}
+		});
 		
 		$("#modalUnidad").modal("show");
 	});
 }
 
-function Validar() {
+function EditUnit() {
+	$("#registros .glyphicon-pencil").click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).data("leyenda");
+		
+		$("#modalUnidad .modal-header .modal-title").html("Editar unidad responsable");
+		$("#modalUnidad .modal-footer .btn-primary").html("Actualizar");
+		
+		$.post(
+			"", 
+			{"id": id}, 
+			function(data) {
+				try {
+					var d = jQuery.parseJSON(data);
+				} catch(e) {}
+				
+				if ( d ) {
+					$("#hdnID").val(d.idUniResponsable);
+					$("#clave").val(d.clave);
+					$("#siglas").val(d.siglas);
+					$("#unidad").val(d.unidad);
+					$("#cp").val(d.codigoPostal);
+					$("#colonia").val(d.colonia);
+					$("#calle").val(d.calle);
+					$("#numExt").val(d.numExterior);
+					$("#numInt").val(d.numInterior);
+					$("#municipio").val(d.municipio);
+					$("#entidad").val(d.entidad);
+					
+					$('input[name="activo"]').each(function() {
+						if ( $(this).val() == d.activo ) {
+							$(this).trigger("click");
+						}
+					});
+				}
+			}
+		);
+		
+		$("#modalUnidad").modal("show");
+	});
+}
+
+function DeleteUnit() {
+	$("#registros .glyphicon-trash").click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).data("unidad");
+		
+		$("#modalConf #idUnidad").val(id);
+		
+		$("#modalConf").modal("show");
+	});
+}
+
+function Validate() {
 	$("#formUnidades").validate({
 		errorElement: "span",
 		errorClass: "help-block",
@@ -43,6 +119,8 @@ function Validar() {
 }
 
 $(function() {
-	Init();
-	Validar();
+	AddUnit();
+	EditUnit();
+	DeleteUnit();
+	Validate();
 });

@@ -3,13 +3,13 @@
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="page-header">Listado de usuarios</h2>
+				<h2 class="page-header">Catálogo de leyendas</h2>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col-md-3">
-				<a href="#" class="btn btn-md btn-primary" id="btn-usuario"> <span class="glyphicon glyphicon-plus"></span> Agregar usuario</a>
+				<a href="#" class="btn btn-md btn-primary" id="btn-leyenda"> <span class="glyphicon glyphicon-plus"></span> Agregar leyenda</a>
 			</div>
 		</div>
 
@@ -20,9 +20,8 @@
 						<thead>
 							<tr>
 								<th>#</th>
-								<th>Nombre</th>
-								<th>Correo</th>
-								<th>Extensión</th>
+								<th>Sección</th>
+								<th>Leyenda</th>
 								<th class="text-center">Activo</th>
 								<th class="text-center">Acciones</th>
 							</tr>
@@ -30,9 +29,8 @@
 						<tbody>
 							<tr>
 								<td>1</td>
-								<td>Raúl Medina Campos</td>
-								<td>raul.medina@cofaa.ipn.mx</td>
-								<td>65160</td>
+								<td>Pedidos</td>
+								<td>Que su registro federal de contribuyentes es COF670302DQ8.</td>
 								<td class="text-center">
 									<?php
 									if ( 1 == 1 ) {
@@ -47,8 +45,8 @@
 									?>
 								</td>
 								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil" data-usuario=""></span> 
-									<span class="glyphicon glyphicon-trash" data-usuario=""></span>
+									<span class="glyphicon glyphicon-pencil" data-leyenda=""></span> 
+									<span class="glyphicon glyphicon-trash" data-leyenda=""></span>
 								</td>
 							</tr>
 						</tbody>
@@ -69,11 +67,11 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">¿Eliminar usuario?</h4>
+					<h4 class="modal-title" id="myModalLabel">¿Eliminar leyenda?</h4>
 				</div>
 				<div class="modal-body">
-					<p>¿Seguro que desea eliminar este usuario?</p>
-					<input type="hidden" id="idUsuario" name="idUsuario" />
+					<p>¿Seguro que desea eliminar esta leyenda?</p>
+					<input type="hidden" id="idLeyenda" name="idLeyenda" />
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-primary">Aceptar</button>

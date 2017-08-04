@@ -9,13 +9,14 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Agregar usuario</h4>
+					<h4 class="modal-title" id="myModalLabel"></h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Número de empleado:</label>
 							<input type="text" id="numEmpleado" name="numEmpleado" class="form-control" placeholder="Número de empleado" />
+							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
 						
 						<div class="form-group col-md-6">
@@ -41,12 +42,12 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Apellido paterno:</label>
-							<input type="text" id="apPat" name="apPat" class="form-control" placeholder="Apellido paterno" />
+							<input type="text" id="apPaterno" name="apPaterno" class="form-control" placeholder="Apellido paterno" />
 						</div>
 						
 						<div class="form-group col-md-6">
 							<label>Apellido materno:</label>
-							<input type="text" id="apMat" name="apMat" class="form-control" placeholder="Apellido materno" />
+							<input type="text" id="apMaterno" name="apMaterno" class="form-control" placeholder="Apellido materno" />
 						</div>
 					</div>
 					<div class="row">
@@ -86,10 +87,10 @@
 						<div class="form-group col-md-6">
 							<div class="btn-group" data-toggle="buttons">
 								<label class="btn btn-switch active">
-									<input type="radio" name="activo" id="activoS" value="1" checked="checked" autocomplete="off"> Sí
+									<input type="radio" name="activo" id="activoS" value="S" checked="checked" autocomplete="off"> Sí
 								</label>
 								<label class="btn btn-switch">
-									<input type="radio" name="activo" id="activoN" value="0" autocomplete="off"> No
+									<input type="radio" name="activo" id="activoN" value="N" autocomplete="off"> No
 								</label>
 							</div>
 						</div>

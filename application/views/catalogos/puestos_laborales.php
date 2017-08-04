@@ -43,8 +43,8 @@
 									?>
 								</td>
 								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil"></span> 
-									<span class="glyphicon glyphicon-trash"></span>
+									<span class="glyphicon glyphicon-pencil" data-puesto=""></span> 
+									<span class="glyphicon glyphicon-trash" data-puesto=""></span>
 								</td>
 							</tr>
 						</tbody>
@@ -54,3 +54,28 @@
 		</div>
 	</section>
 </section>
+
+<!-- Ventana modal para mensaje de confirmación -->
+<div class="modal fade" id="modalConf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<form id="formEliminar" name="formEliminar" method="post" action="<?php echo base_url(''); ?>">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">¿Eliminar puesto laboral?</h4>
+				</div>
+				<div class="modal-body">
+					<p>¿Seguro que desea eliminar esta puesto laboral?</p>
+					<input type="hidden" id="idPuesto" name="idPuesto" />
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Aceptar</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

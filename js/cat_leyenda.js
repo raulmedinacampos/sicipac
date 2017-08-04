@@ -1,19 +1,19 @@
-function AddArea() {
-	$("#btn-area").click(function(e) {
+function AddText() {
+	$("#btn-leyenda").click(function(e) {
 		e.preventDefault();
 		
-		$("#modalArea .modal-header .modal-title").html("Agregar área administrativa");
-		$("#modalArea .modal-footer .btn-primary").html("Guardar");
+		$("#modalLeyenda .modal-header .modal-title").html("Agregar leyenda");
+		$("#modalLeyenda .modal-footer .btn-primary").html("Guardar");
 		
-		$('#modalArea .modal-body input[type="text"]').each(function() {
+		$('#modalLeyenda .modal-body input[type="text"]').each(function() {
 			$(this).val("");
 		});
 		
-		$("#modalArea .modal-body textarea").each(function() {
+		$("#modalLeyenda .modal-body textarea").each(function() {
 			$(this).val("");
 		});
 		
-		$("#modalArea .modal-body select").each(function() {
+		$("#modalLeyenda .modal-body select").each(function() {
 			$(this).val("");
 		});
 		
@@ -23,18 +23,18 @@ function AddArea() {
 			}
 		});
 		
-		$("#modalArea").modal("show");
+		$("#modalLeyenda").modal("show");
 	});
 }
 
-function EditArea() {
+function EditText() {
 	$("#registros .glyphicon-pencil").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("area");
+		var id = $(this).data("leyenda");
 		
-		$("#modalArea .modal-header .modal-title").html("Editar área administrativa");
-		$("#modalArea .modal-footer .btn-primary").html("Actualizar");
+		$("#modalLeyenda .modal-header .modal-title").html("Editar leyenda");
+		$("#modalLeyenda .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
 			"", 
@@ -45,11 +45,10 @@ function EditArea() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idArea);
-					$("#area").val(d.area);
-					$("#siglas").val(d.siglas);
-					$("#areaPadre").val(d.areaPadre);
-					$("#descripcion").val(d.descripcion);
+					$("#hdnID").val(d.idLeyenda);
+					$("#clave").val(d.clave);
+					$("#seccion").val(d.seccion);
+					$("#leyenda").val(d.leyenda);
 					
 					$('input[name="activo"]').each(function() {
 						if ( $(this).val() == d.activo ) {
@@ -60,24 +59,24 @@ function EditArea() {
 			}
 		);
 		
-		$("#modalArea").modal("show");
+		$("#modalLeyenda").modal("show");
 	});
 }
 
-function DeleteArea() {
+function DeleteText() {
 	$("#registros .glyphicon-trash").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("area");
+		var id = $(this).data("leyenda");
 		
-		$("#modalConf #idArea").val(id);
+		$("#modalConf #idLeyenda").val(id);
 		
 		$("#modalConf").modal("show");
 	});
 }
 
 function Validate() {
-	$("#formAreas").validate({
+	$("#formLeyendas").validate({
 		errorElement: "span",
 		errorClass: "help-block",
 		errorPlacement: function(error, element) {
@@ -94,19 +93,19 @@ function Validate() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
-			area: {
+			puesto: {
 				required: true
 			}
 		},
 		messages: {
-			area: "Campo obligatorio"
+			puesto: "Campo obligatorio"
 		}
 	});
 }
 
 $(function() {
-	AddArea();
-	EditArea();
-	DeleteArea();
+	AddText();
+	EditText();
+	DeleteText();
 	Validate();
 });

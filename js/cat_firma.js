@@ -1,19 +1,19 @@
-function AddArea() {
-	$("#btn-area").click(function(e) {
+function AddSignature() {
+	$("#btn-firma").click(function(e) {
 		e.preventDefault();
 		
-		$("#modalArea .modal-header .modal-title").html("Agregar área administrativa");
-		$("#modalArea .modal-footer .btn-primary").html("Guardar");
+		$("#modalFirma .modal-header .modal-title").html("Agregar firma");
+		$("#modalFirma .modal-footer .btn-primary").html("Guardar");
 		
-		$('#modalArea .modal-body input[type="text"]').each(function() {
+		$('#modalFirma .modal-body input[type="text"]').each(function() {
 			$(this).val("");
 		});
 		
-		$("#modalArea .modal-body textarea").each(function() {
+		$("#modalFirma .modal-body textarea").each(function() {
 			$(this).val("");
 		});
 		
-		$("#modalArea .modal-body select").each(function() {
+		$("#modalFirma .modal-body select").each(function() {
 			$(this).val("");
 		});
 		
@@ -23,18 +23,18 @@ function AddArea() {
 			}
 		});
 		
-		$("#modalArea").modal("show");
+		$("#modalFirma").modal("show");
 	});
 }
 
-function EditArea() {
+function EditSignature() {
 	$("#registros .glyphicon-pencil").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("area");
+		var id = $(this).data("firma");
 		
-		$("#modalArea .modal-header .modal-title").html("Editar área administrativa");
-		$("#modalArea .modal-footer .btn-primary").html("Actualizar");
+		$("#modalFirma .modal-header .modal-title").html("Editar firma");
+		$("#modalFirma .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
 			"", 
@@ -45,11 +45,12 @@ function EditArea() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idArea);
-					$("#area").val(d.area);
-					$("#siglas").val(d.siglas);
-					$("#areaPadre").val(d.areaPadre);
-					$("#descripcion").val(d.descripcion);
+					$("#hdnID").val(d.idFirma);
+					$("#titulo").val(d.titulo);
+					$("#nombre").val(d.nombre);
+					$("#apPaterno").val(d.apPaterno);
+					$("#apMaterno").val(d.apMaterno);
+					$("#cargo").val(d.cargo);
 					
 					$('input[name="activo"]').each(function() {
 						if ( $(this).val() == d.activo ) {
@@ -60,24 +61,24 @@ function EditArea() {
 			}
 		);
 		
-		$("#modalArea").modal("show");
+		$("#modalFirma").modal("show");
 	});
 }
 
-function DeleteArea() {
+function DeleteSignature() {
 	$("#registros .glyphicon-trash").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("area");
+		var id = $(this).data("firma");
 		
-		$("#modalConf #idArea").val(id);
+		$("#modalConf #idFirma").val(id);
 		
 		$("#modalConf").modal("show");
 	});
 }
 
 function Validate() {
-	$("#formAreas").validate({
+	$("#formFirmas").validate({
 		errorElement: "span",
 		errorClass: "help-block",
 		errorPlacement: function(error, element) {
@@ -94,19 +95,19 @@ function Validate() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
-			area: {
+			puesto: {
 				required: true
 			}
 		},
 		messages: {
-			area: "Campo obligatorio"
+			puesto: "Campo obligatorio"
 		}
 	});
 }
 
 $(function() {
-	AddArea();
-	EditArea();
-	DeleteArea();
+	AddSignature();
+	EditSignature();
+	DeleteSignature();
 	Validate();
 });

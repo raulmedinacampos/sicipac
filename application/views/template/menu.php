@@ -66,6 +66,12 @@
 						<a class="" href="<?php echo base_url('configuracion/areas-administrativas'); ?>">Áreas administrativas</a>
 					</li>
 					<li>
+						<a class="" href="<?php echo base_url('configuracion/firmas'); ?>">Firmas</a>
+					</li>
+					<li>
+						<a class="" href="<?php echo base_url('configuracion/leyendas'); ?>">Leyendas</a>
+					</li>
+					<li>
 						<a class="" href="<?php echo base_url('configuracion/puestos-laborales'); ?>">Puestos laborales</a>
 					</li>
 					<li>
@@ -85,8 +91,8 @@
 					<span>Procedimientos</span>
 				</a>
 			</li>
-			<li>
-				<a class="" href="widgets.html"> 
+			<li<?php if($this->uri->segment(1) == "proveedores") {echo ' class="active"';} ?>>
+				<a class="" href="<?php echo base_url('proveedores'); ?>"> 
 					<i class="icon_bag_alt"></i> 
 					<span>Proveedores</span>
 				</a>

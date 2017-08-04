@@ -1,8 +1,8 @@
 
-<!-- Ventana modal para áreas administrativas -->
-<div class="modal fade" id="modalArea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Ventana modal para firmas -->
+<div class="modal fade" id="modalLeyenda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
-		<form id="formAreas" name="formAreas" method="post" action="">
+		<form id="formLeyendas" name="formLeyendas" method="post" action="">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
@@ -13,29 +13,20 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="form-group col-md-12">
-							<label>Nombre del área:</label>
-							<input type="text" id="area" name="area" class="form-control" placeholder="Ingresa el nombre del área" />
+						<div class="form-group col-md-6">
+							<label>Clave:</label>
+							<input type="text" id="clave" name="clave" class="form-control" placeholder="Identificador de la leyenda" />
 							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
-					</div>
-					<div class="row">
-						<div class="form-group col-md-4">
-							<label>Siglas:</label>
-							<input type="text" id="siglas" name="siglas" class="form-control" placeholder="Siglas del área" />
-						</div>
-						
-						<div class="form-group col-md-8">
-							<label>Depende de:</label>
-							<select id="areaPadre" name="areaPadre" class="form-control">
-								<option value="">Seleccione</option>
-							</select>
+						<div class="form-group col-md-6">
+							<label>Sección:</label>
+							<input type="text" id="seccion" name="seccion" class="form-control" placeholder="Sección a la que pertenece" />
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-12">
-							<label>Descripción:</label>
-							<textarea id="descripcion" name="descripcion" rows="3" class="form-control" placeholder="Descripción"></textarea>
+							<label>Leyenda:</label>
+							<textarea id="leyenda" name="leyenda" rows="3" class="form-control" placeholder="Ingresa el texto"></textarea>
 						</div>
 					</div>
 					<div class="row">
@@ -55,7 +46,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="submit" class="btn btn-primary">Guardar</button>
+					<button type="submit" class="btn btn-primary">Aceptar</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>

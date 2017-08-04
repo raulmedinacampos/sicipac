@@ -9,13 +9,14 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Agregar puesto laboral</h4>
+					<h4 class="modal-title" id="myModalLabel"></h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label>Nombre del puesto:</label>
 							<input type="text" id="puesto" name="puesto" class="form-control" placeholder="Ingresa el nombre del puesto" />
+							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
 					</div>
 					<div class="row">
@@ -25,10 +26,10 @@
 						<div class="form-group col-md-6">
 							<div class="btn-group" data-toggle="buttons">
 								<label class="btn btn-switch active">
-									<input type="radio" name="activo" id="activoS" value="1" checked="checked" autocomplete="off"> Sí
+									<input type="radio" name="activo" id="activoS" value="S" checked="checked" autocomplete="off"> Sí
 								</label>
 								<label class="btn btn-switch">
-									<input type="radio" name="activo" id="activoN" value="0" autocomplete="off"> No
+									<input type="radio" name="activo" id="activoN" value="N" autocomplete="off"> No
 								</label>
 							</div>
 						</div>
