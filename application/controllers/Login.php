@@ -32,9 +32,9 @@ class Login extends CI_Controller {
 		
 		if ( $usr > 0 ) {
 			$tipo = $usr->CTIPUSU;
-			$nom = trim($usr->CNOMBRE." ".$usr->CAPEPAT." ".$usr->CAPEMAT);
-			$num = $usr->NNUMEMP;
-			$cve = $usr->CCVEUSU;
+			$nom = trim($usr->NOMBRE." ".$usr->APPATERNO." ".$usr->APMATERNO);
+			$num = $usr->NUMEMPLEADO;
+			$cve = $usr->NOMBREUSUARIO;
 			$this->session->set_userdata(array("nom"=>$nom,"tipo"=>$tipo,"clave"=>$cve,"empleado"=>$num));
 			
 			switch ( $tipo ) {//ver tipos que existan

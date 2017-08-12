@@ -1,9 +1,9 @@
 <?php
 class Procedimiento_md extends CI_Model {
 	public function GetOperationType() {
-		$query = $this->db->select("CCVLICI, CLICITA");
-		$query = $this->db->where(array("CVIGENT"=>"S"));
-		$query = $this->db->get("CTLICIT");
+		$query = $this->db->select("IDTIPOLICITACION, TIPOLICITACION");
+		$query = $this->db->where("ACTIVO","S");
+		$query = $this->db->get("CATTIPOLICITACION");
 		
 		if ( $query->result() ) {
 			return $query->result();
@@ -12,7 +12,7 @@ class Procedimiento_md extends CI_Model {
 	
 	public function GetProcType() {
 		$query = $this->db->select("IDTIPOPROCEDIMIENTO, TIPOPROCEDIMIENTO");
-		$query = $this->db->where(array("ACTIVO"=>"S"));
+		$query = $this->db->where("ACTIVO","S");
 		$query = $this->db->get("CATTIPOPROCEDIMIENTO");
 		
 		if ( $query->result() ) {
@@ -21,9 +21,9 @@ class Procedimiento_md extends CI_Model {
 	}
 	
 	public function GetOrigenType() {
-		$query = $this->db->select("NORIGEN, CDESCRI");
-		$query = $this->db->where(array("CVIGENT"=>"S"));
-		$query = $this->db->get("CCORIGN");
+		$query = $this->db->select("IDORIGEN, ORIGEN");
+		$query = $this->db->where("ACTIVO","S");
+		$query = $this->db->get("CATORIGEN");
 		
 		if ( $query->result() ) {
 			return $query->result();

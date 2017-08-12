@@ -108,12 +108,22 @@ function Validate() {
 			},
 			unidad: {
 				required: true
+			},
+			cp: {
+				digits: true,
+				minlength: 5,
+				maxlength: 5
 			}
 		},
 		messages: {
 			clave: "Campo obligatorio",
 			siglas: "Campo obligatorio",
-			unidad: "Campo obligatorio"
+			unidad: "Campo obligatorio",
+			cp: {
+				digits: "Deben ser solo números",
+				minlength : "El código postal es de 5 dígitos",
+				maxlength : "El código postal es de 5 dígitos"
+			}
 		}
 	});
 }

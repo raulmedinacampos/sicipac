@@ -33,12 +33,15 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Código postal:</label>
-							<input type="text" id="cp" name="cp" class="form-control" placeholder="Código postal" />
+							<input type="text" id="cp" name="cp" maxlength="5" class="form-control" placeholder="Código postal" />
 						</div>
 						
 						<div class="form-group col-md-6">
 							<label>Colonia:</label>
-							<input type="text" id="colonia" name="colonia" class="form-control" placeholder="Colonia" />
+							<div class="dropdown">
+								<input type="text" id="colonia" name="colonia" class="form-control" placeholder="Colonia" />
+								<ul class="dropdown-menu dropdown-colonia"></ul>
+							</div>
 						</div>
 					</div>
 					<div class="row">
@@ -60,15 +63,22 @@
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label>Delgación o municipio:</label>
-							<select id="municipio" name="municipio" class="form-control">
+							<label>Entidad federativa:</label>
+							<select id="entidad" name="entidad" class="form-control">
 								<option value="">Seleccione</option>
+								<?php
+								foreach ( $entidades as $val ) {
+								?>
+								<option value="<?php echo $val->IDENTIDAD; ?>"><?php echo $val->ENTIDAD; ?></option>
+								<?php
+								}
+								?>
 							</select>
 						</div>
 						
 						<div class="form-group col-md-6">
-							<label>Entidad federativa:</label>
-							<select id="entidad" name="entidad" class="form-control">
+							<label>Delegación o municipio:</label>
+							<select id="municipio" name="municipio" class="form-control">
 								<option value="">Seleccione</option>
 							</select>
 						</div>

@@ -95,12 +95,16 @@ function Validate() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
-			puesto: {
+			nombre: {
+				required: true
+			},
+			cargo: {
 				required: true
 			}
 		},
 		messages: {
-			puesto: "Campo obligatorio"
+			nombre: "Campo obligatorio",
+			cargo: "Campo obligatorio"
 		}
 	});
 }

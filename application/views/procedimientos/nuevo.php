@@ -30,7 +30,7 @@
 									<?php
 									foreach ($tipo_operacion as $val) {
 									?>
-									<option value="<?php echo $val->CCVLICI; ?>"><?php echo $val->CLICITA; ?></option>
+									<option value="<?php echo $val->IDTIPOLICITACION; ?>"><?php echo $val->TIPOLICITACION; ?></option>
 									<?php
 									}
 									?>
@@ -43,7 +43,7 @@
 									<?php
 									foreach ($procedencia as $val) {
 									?>
-									<option value="<?php echo $val->NORIGEN; ?>"><?php echo $val->CDESCRI; ?></option>
+									<option value="<?php echo $val->IDORIGEN; ?>"><?php echo $val->ORIGEN; ?></option>
 									<?php
 									}
 									?>

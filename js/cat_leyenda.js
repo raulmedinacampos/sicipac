@@ -93,12 +93,20 @@ function Validate() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
-			puesto: {
+			clave: {
+				required: true
+			},
+			seccion: {
+				required: true
+			},
+			leyenda: {
 				required: true
 			}
 		},
 		messages: {
-			puesto: "Campo obligatorio"
+			clave: "Campo obligatorio",
+			seccion: "Campo obligatorio",
+			leyenda: "Campo obligatorio"
 		}
 	});
 }

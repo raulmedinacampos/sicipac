@@ -11,6 +11,16 @@ class Configuracion extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 	
+	public function mis_datos() {
+		$header["titulo"] = "Configuración de datos";
+		$header["js"][] = "cat_firma";
+		
+		$this->load->view('template/header', $header);
+		$this->load->view('template/menu');
+		$this->load->view('configuracion/cuenta');
+		$this->load->view('template/footer');
+	}
+	
 	public function firmas() {
 		$header["titulo"] = "Catálogo de firmas";
 		$header["js"][] = "cat_firma";
@@ -56,12 +66,18 @@ class Configuracion extends CI_Controller {
 	}
 	
 	public function unidades_responsables() {
+		$this->load->model("direccion_md");
+		
 		$header["titulo"] = "Catálogo de unidades responsables";
+		
+		$header["js"][] = "direcciones";
 		$header["js"][] = "cat_uni_resp";
+		
+		$params["entidades"] = $this->direccion_md->GetStates();
 		
 		$this->load->view('template/header', $header);
 		$this->load->view('template/menu');
-		$this->load->view('catalogos/unidades_responsables');
+		$this->load->view('catalogos/unidades_responsables', $params);
 		$this->load->view('catalogos/modal_uni_resp');
 		$this->load->view('template/footer');
 	}

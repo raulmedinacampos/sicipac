@@ -26,14 +26,14 @@
 			$header["js"][] = "fileinput.min";
 			$header["js"][] = "nuevo_procedimiento";
 			
-			$data['tipo_operacion'] = $this->procedimiento_md->GetOperationType();
-			$data['procedencia'] = $this->procedimiento_md->GetOrigenType();
-			$data['caracter_procedimiento'] = $this->procedimiento_md->getProcType();
-			$data['medida'] = $this->procedimiento_md->GetOrigenType();
+			$params['tipo_operacion'] = $this->procedimiento_md->GetOperationType();
+			$params['procedencia'] = $this->procedimiento_md->GetOrigenType();
+			$params['caracter_procedimiento'] = $this->procedimiento_md->getProcType();
+			$params['medida'] = $this->procedimiento_md->GetOrigenType();
 			
 			$this->load->view('template/header', $header);
 			$this->load->view('template/menu');
-			$this->load->view('procedimientos/nuevo', $data);
+			$this->load->view('procedimientos/nuevo', $params);
 			$this->load->view('procedimientos/modal_visita');
 			$this->load->view('procedimientos/modal_correo');
 			$this->load->view('procedimientos/modal_partida');

@@ -24,7 +24,7 @@
 				<ul class="dropdown-menu extended logout">
 					<div class="log-arrow-up"></div>
 					<li class="eborder-top">
-						<a href="#">
+						<a href="<?php echo base_url("configuracion/mis-datos"); ?>">
 							<i class="icon_profile"></i>
 							Mis datos
 						</a>

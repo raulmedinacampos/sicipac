@@ -13,13 +13,11 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="form-group col-md-12">
+						<div class="form-group col-md-6">
 							<label>Nombre de la unidad:</label>
 							<input type="text" id="unidad" name="unidad" class="form-control" placeholder="Ingresa el nombre de la unidad" />
 							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
-					</div>
-					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Abreviatura:</label>
 							<input type="text" id="abreviatura" name="abreviatura" class="form-control" placeholder="Abreviatura de la unidad" />
