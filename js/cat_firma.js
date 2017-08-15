@@ -1,7 +1,32 @@
+function Init() {
+	$("#registros").DataTable({
+		"fnDrawCallback": function(oSettings) {
+			// Muestra u oculta paginación
+			if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+				$(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+			}
+			
+			EditSignature();
+			DeleteSignature();
+	    },
+	    "oLanguage": {
+            "oPaginate": {
+	            "sPrevious": "&#171;",
+	            "sNext": "&#187;"
+		    },
+		    "sInfo": "Firmas _START_ de _END_ de un total de _TOTAL_",
+		    "sZeroRecords": "No se encontraron resultados"
+	    },
+	    "bLengthChange": false,
+		"pageLength": 15
+	});
+}
+
 function AddSignature() {
 	$("#btn-firma").click(function(e) {
 		e.preventDefault();
 		
+		$("#modalFirma #formFirmas").attr("action", "/configuracion/firmas/agregar");
 		$("#modalFirma .modal-header .modal-title").html("Agregar firma");
 		$("#modalFirma .modal-footer .btn-primary").html("Guardar");
 		
@@ -33,11 +58,12 @@ function EditSignature() {
 		
 		var id = $(this).data("firma");
 		
+		$("#modalFirma #formFirmas").attr("action", "/configuracion/firmas/editar");
 		$("#modalFirma .modal-header .modal-title").html("Editar firma");
 		$("#modalFirma .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
-			"", 
+			"/configuracion/firmas/consultar", 
 			{"id": id}, 
 			function(data) {
 				try {
@@ -45,15 +71,16 @@ function EditSignature() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idFirma);
-					$("#titulo").val(d.titulo);
-					$("#nombre").val(d.nombre);
-					$("#apPaterno").val(d.apPaterno);
-					$("#apMaterno").val(d.apMaterno);
-					$("#cargo").val(d.cargo);
+					d = d[0];
+					$("#hdnID").val(d.IDFIRMA);
+					$("#titulo").val(d.TITULO);
+					$("#nombre").val(d.NOMBRE);
+					$("#apPaterno").val(d.APPATERNO);
+					$("#apMaterno").val(d.APMATERNO);
+					$("#cargo").val(d.PUESTO);
 					
 					$('input[name="activo"]').each(function() {
-						if ( $(this).val() == d.activo ) {
+						if ( $(this).val() == d.ACTIVO ) {
 							$(this).trigger("click");
 						}
 					});
@@ -110,6 +137,7 @@ function Validate() {
 }
 
 $(function() {
+	Init();
 	AddSignature();
 	EditSignature();
 	DeleteSignature();

@@ -66,8 +66,10 @@ footer {
 	display: none;
 }
 
-#registros .glyphicon,
-.tabla-contacto .glyphicon {
+#registros .glyphicon-pencil, 
+#registros .glyphicon-trash, 
+.tabla-contacto .glyphicon-pencil, 
+.tabla-contacto .glyphicon-trash {
 	margin: 0 2px;
 	cursor: pointer;
 }

@@ -29,6 +29,13 @@
 							<label>Depende de:</label>
 							<select id="areaPadre" name="areaPadre" class="form-control">
 								<option value="">Seleccione</option>
+								<?php
+								foreach ( $activas as $val ) {
+								?>
+								<option value="<?php echo $val->IDAREA; ?>"><?php echo $val->AREA; ?></option>
+								<?php
+								}
+								?>
 							</select>
 						</div>
 					</div>
