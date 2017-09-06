@@ -3,7 +3,12 @@
 	<section class="wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="page-header">Nuevo proveedor</h2>
+				<?php
+				$accion = "";
+				
+				$accion = (isset($proveedor)) ? "Editar" : "Nuevo";
+				?>
+				<h2 class="page-header"><?php echo $accion; ?> proveedor</h2>
 			</div>
 		</div>
 		
@@ -14,7 +19,7 @@
 		</ul>
 		
 		<!-- Paneles -->
-		<form method="post" action="">
+		<form id="formProveedores" name="formProveedores" method="post" action="<?php echo base_url('proveedores/agregar'); ?>">
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="generales">
 					<div class="row">
@@ -22,35 +27,35 @@
 							<label>Tipo de contribuyente:</label>
 							<select id="tipoContribuyente" name="tipoContribuyente" class="form-control">
 								<option value="">Selecciona tipo</option>
-								<option value="pf">Persona física</option>
-								<option value="pm">Persona moral</option>
+								<option value="pf" <?php if(isset($proveedor) && $proveedor->TIPOCONTRIBUYENTE == "pf") echo 'selected="selected"'; ?>>Persona física</option>
+								<option value="pm" <?php if(isset($proveedor) && $proveedor->TIPOCONTRIBUYENTE == "pm") echo 'selected="selected"'; ?>>Persona moral</option>
 							</select>
 						</div>
 						<div class="form-group col-md-6">
 							<label>RFC:</label>
-							<input type="text" class="form-control" placeholder="Ingresa RFC" />
+							<input type="text" id="rfc" name="rfc" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->RFC; ?>" placeholder="Ingresa RFC" />
 						</div>
 					</div>
 					<div class="row div-oculto p-fisica">
 						<div class="form-group col-md-6">
 							<label>Nombre:</label>
-							<input type="text" class="form-control" placeholder="Ingresa clave" />
+							<input type="text" id="nombre" name="nombre" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->NOMBRE; ?>" placeholder="Ingresa clave" />
 						</div>
 						<div class="form-group col-md-6">
 							<label>Apellido paterno:</label>
-							<input type="text" class="form-control" placeholder="Ingresa clave" />
+							<input type="text" id="apPaterno" name="apPaterno" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->APPATERNO; ?>" placeholder="Ingresa clave" />
 						</div>
 					</div>
 					<div class="row div-oculto p-fisica">
 						<div class="form-group col-md-6">
 							<label>Apellido materno:</label>
-							<input type="text" class="form-control" placeholder="Ingresa clave" />
+							<input type="text" id="apMaterno" name="apMaterno" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->APMATERNO; ?>" placeholder="Ingresa clave" />
 						</div>
 					</div>
 					<div class="row div-oculto p-moral">
 						<div class="form-group col-md-12">
 							<label>Razón social:</label>
-							<input type="text" class="form-control" placeholder="Ingresa clave" />
+							<input type="text" id="razonSocial" name="razonSocial" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->RAZONSOCIAL; ?>" placeholder="Ingresa clave" />
 						</div>
 					</div>
 					
@@ -59,13 +64,13 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Código postal:</label>
-							<input type="text" id="cp" name="cp" maxlength="5" class="form-control" placeholder="Código postal" />
+							<input type="text" id="cp" name="cp" maxlength="5" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->CODIGOPOSTAL; ?>" placeholder="Código postal" />
 						</div>
 						
 						<div class="form-group col-md-6">
 							<label>Colonia:</label>
 							<div class="dropdown">
-								<input type="text" id="colonia" name="colonia" class="form-control" placeholder="Colonia" />
+								<input type="text" id="colonia" name="colonia" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->COLONIA; ?>" placeholder="Colonia" />
 								<ul class="dropdown-menu dropdown-colonia"></ul>
 							</div>
 						</div>
@@ -73,18 +78,18 @@
 					<div class="row">
 						<div class="form-group col-md-12">
 							<label>Calle:</label>
-							<input type="text" id="calle" name="calle" class="form-control" placeholder="Calle" />
+							<input type="text" id="calle" name="calle" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->CALLE; ?>" placeholder="Calle" />
 						</div>
 					</div>
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Número exterior:</label>
-							<input type="text" id="numExt" name="numExt" class="form-control" placeholder="Número exterior" />
+							<input type="text" id="numExt" name="numExt" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->NUMEXTERIOR; ?>" placeholder="Número exterior" />
 						</div>
 						
 						<div class="form-group col-md-6">
 							<label>Número interior:</label>
-							<input type="text" id="numInt" name="numInt" class="form-control" placeholder="Número interior" />
+							<input type="text" id="numInt" name="numInt" class="form-control" value="<?php if(isset($proveedor)) echo $proveedor->NUMINTERIOR; ?>" placeholder="Número interior" />
 						</div>
 					</div>
 					<div class="row">
@@ -95,7 +100,7 @@
 								<?php
 								foreach ( $entidades as $val ) {
 								?>
-								<option value="<?php echo $val->IDENTIDAD; ?>"><?php echo $val->ENTIDAD; ?></option>
+								<option value="<?php echo $val->IDENTIDAD; ?>" <?php if(isset($proveedor) && $proveedor->ENTIDAD == $val->IDENTIDAD) echo 'selected="selected"'; ?>><?php echo $val->ENTIDAD; ?></option>
 								<?php
 								}
 								?>
@@ -107,6 +112,9 @@
 								<option value="">Seleccione</option>
 							</select>
 						</div>
+					</div>
+					<div class="botones-guardar">
+						<button type="submit" class="btn btn-primary">Guardar</button>
 					</div>
 				</div>  <!-- Fin generales -->
 				<div role="tabpanel" class="tab-pane" id="representantes">
@@ -151,11 +159,6 @@
 						</tbody>
 					</table>
 				</div>  <!-- Fin representantes -->
-				
-				<div class="botones-guardar">
-					<button class="btn btn-primary">Guardar sección</button>
-					<button class="btn btn-primary">Guardar todo</button>
-				</div>
 			</div>
 		</form>
 	</section>

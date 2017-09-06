@@ -12,12 +12,10 @@
 					<h4 class="modal-title" id="myModalLabel">Agregar correo</h4>
 				</div>
 				<div class="modal-body">
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
-								<label>Correo electrónico:</label>
-								<input type="text" class="form-control" placeholder="Ingresa correo electrónico" />
-							</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label>Correo electrónico:</label>
+							<input type="text" class="form-control" placeholder="Ingresa correo electrónico" />
 						</div>
 					</div>
 				</div>

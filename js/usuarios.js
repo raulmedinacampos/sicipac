@@ -1,7 +1,32 @@
+function Init() {
+	$("#registros").DataTable({
+		"fnDrawCallback": function(oSettings) {
+			// Muestra u oculta paginación
+			if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+				$(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+			}
+			
+			EditUser();
+			DeleteUser();
+	    },
+	    "oLanguage": {
+            "oPaginate": {
+	            "sPrevious": "&#171;",
+	            "sNext": "&#187;"
+		    },
+		    "sInfo": "Usuarios _START_ de _END_ de un total de _TOTAL_",
+		    "sZeroRecords": "No se encontraron resultados"
+	    },
+	    "bLengthChange": false,
+		"pageLength": 15
+	});
+}
+
 function AddUser() {
 	$("#btn-usuario").click(function(e) {
 		e.preventDefault();
 		
+		$("#modalUsuario #formUsuarios").attr("action", "/configuracion/usuarios/agregar");
 		$("#modalUsuario .modal-header .modal-title").html("Agregar usuario");
 		$("#modalUsuario .modal-footer .btn-primary").html("Guardar");
 		
@@ -34,8 +59,9 @@ function EditUser() {
 	$("#registros .glyphicon-pencil").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("leyenda");
+		var id = $(this).data("usuario");
 		
+		$("#modalUsuario #formUsuarios").attr("action", "/configuracion/usuarios/editar");
 		$("#modalUsuario .modal-header .modal-title").html("Editar usuario");
 		$("#modalUsuario .modal-footer .btn-primary").html("Actualizar");
 		
@@ -43,7 +69,7 @@ function EditUser() {
 		$(".div-btn-datos").css("display", "none");
 		
 		$.post(
-			"", 
+			"/configuracion/usuarios/consultar", 
 			{"id": id}, 
 			function(data) {
 				try {
@@ -51,20 +77,23 @@ function EditUser() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idUsuario);
-					$("#numEmpleado").val(d.numEmpleado);
-					$("#puesto").val(d.puesto);
-					$("#area").val(d.area);
-					$("#nombre").val(d.nombre);
-					$("#apPaterno").val(d.apPaterno);
-					$("#apMaterno").val(d.apMaterno);
-					$("#extension").val(d.extension);
-					$("#correo").val(d.correo);
-					$("#nomUsuario").val(d.nombreUsuario);
-					$("#password").val(d.password);
+					d = d[0];
+					var correo = d.CORREO.split("@");
+					
+					$("#hdnID").val(d.IDUSUARIO);
+					$("#numEmpleado").val(d.NUMEMPLEADO);
+					$("#puesto").val(d.PUESTO);
+					$("#area").val(d.AREA);
+					$("#nombre").val(d.NOMBRE);
+					$("#apPaterno").val(d.APPATERNO);
+					$("#apMaterno").val(d.APMATERNO);
+					$("#extension").val(d.EXTENSION);
+					$("#correo").val(correo[0]);
+					$("#nomUsuario").val(d.NOMBREUSUARIO);
+					$("#password").val(d.PASSWORD);
 					
 					$('input[name="activo"]').each(function() {
-						if ( $(this).val() == d.activo ) {
+						if ( $(this).val() == d.ACTIVO ) {
 							$(this).trigger("click");
 						}
 					});
@@ -120,6 +149,9 @@ function Validate() {
 			$(element).closest(".form-group").removeClass("has-error");
 		},
 		rules: {
+			numEmpleado: {
+				digits: true
+			},
 			nombre: {
 				required: true
 			},
@@ -134,6 +166,7 @@ function Validate() {
 			}
 		},
 		messages: {
+			numEmpleado: "Deben ser solo números",
 			nombre: "Campo obligatorio",
 			correo: "Campo obligatorio",
 			nomUsuario: "Campo obligatorio",
@@ -143,6 +176,7 @@ function Validate() {
 }
 
 $(function() {
+	Init();
 	AddUser();
 	EditUser();
 	DeleteUser();

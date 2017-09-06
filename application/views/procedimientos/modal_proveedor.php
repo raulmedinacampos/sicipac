@@ -21,44 +21,24 @@
 					<!-- Paneles -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="par_generales">
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Nombre:</label>
-										<input type="text" class="form-control" placeholder="Ingresa nombre" />
-									</div>
-									<div class="col-md-6">
-										<label>RFC:</label>
-										<input type="text" class="form-control" placeholder="Ingresa RFC" />
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Representante legal:</label>
-										<input type="text" class="form-control" placeholder="Ingresa representante" />
-									</div>
-									<div class="col-md-6">
-										<label>Representante comercial:</label>
-										<input type="text" class="form-control" placeholder="Ingresa representante" />
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>RFC:</label>
+									<input type="text" class="form-control" placeholder="Ingresa RFC" />
 								</div>
 							</div>
 						</div>  <!-- Fin par_generales -->
 						<div role="tabpanel" class="tab-pane" id="par_documentos">
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Documento:</label>
-										<select class="form-control">
-											<option>Selecciona</option>
-										</select>
-									</div>
-									<div class="col-md-6">
-										<label>Adjuntar documento:</label>
-										<input type="file" id="fileDocumento" />
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>Documento:</label>
+									<select class="form-control">
+										<option>Selecciona</option>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<label>Adjuntar documento:</label>
+									<input type="file" id="fileDocumento" />
 								</div>
 							</div>
 							

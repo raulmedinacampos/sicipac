@@ -15,8 +15,7 @@ class Areas_md extends CI_Model {
     }
     
 	function GetAllAdmin() {
-		$this->db->where('ACTIVO', 'S');
-		$this->db->or_where('ACTIVO', 'N');
+		$this->db->where('ACTIVO != ', 'E');
         $query = $this->db->get(self::tabla);
         return $query->result();
     }
@@ -34,14 +33,6 @@ class Areas_md extends CI_Model {
     }
 	
     function InsertRecord($data) {
-        /*$this->SIGLAS   = $data[0];
-        $this->AREA = $data[1];
-        $this->AREAPADRE = $data[2];
-        $this->DESCRIPCION    = $data[3];
-        $this->FECHAINSERCION    = $data[4];
-        $this->USUARIOINSERTO    = $data[5];
-        $this->ACTIVO    = $data[6];*/
-    	
     	$this->db->set('SIGLAS', $data[0]);
     	$this->db->set('AREA', $data[1]);
     	$this->db->set('AREAPADRE', $data[2]);
@@ -57,14 +48,6 @@ class Areas_md extends CI_Model {
     }
 	
     function UpdateRecord($data,$id) {
-        /*$this->SIGLAS   = $data[0];
-        $this->AREA = $data[1];
-        $this->AREAPADRE = $data[2];
-        $this->DESCRIPCION    = $data[3];
-        $this->FECHAMODIFICACION    = $data[4];
-        $this->USUARIOMODIFICO    = $data[5];
-        $this->ACTIVO    = $data[6];*/
-    	
     	$this->db->set('SIGLAS', $data[0]);
     	$this->db->set('AREA', $data[1]);
     	$this->db->set('AREAPADRE', $data[2]);

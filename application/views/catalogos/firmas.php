@@ -38,7 +38,7 @@
 								<td><?php echo $nomC; ?></td>
 								<td class="text-center">
 									<?php
-									if ( $val->ACTIVO == "S") {
+									if ( $val->ACTIVO == "S" ) {
 									?>
 									<span class="glyphicon glyphicon-ok text-success"></span>
 									<?php

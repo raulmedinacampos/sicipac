@@ -50,7 +50,7 @@
 			</div>
 		
 			<div class="col-md-3">
-				<a href="<?php echo base_url("proveedores/nuevo-proveedor"); ?>" class="btn btn-md btn-primary pull-right"> <span class="glyphicon glyphicon-plus"></span> Agregar proveedor</a>
+				<a id="btnNuevo" href="<?php echo base_url("proveedores/nuevo-proveedor"); ?>" class="btn btn-md btn-primary pull-right"> <span class="glyphicon glyphicon-plus"></span> Agregar proveedor</a>
 			</div>
 		</div>
 
@@ -63,18 +63,24 @@
 								<th>#</th>
 								<th>RFC</th>
 								<th>Razón social</th>
+								<th class="text-center">Representantes</th>
 								<th class="text-center">Activo</th>
 								<th class="text-center">Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+							$i = 1;
+							foreach ( $proveedores as $val ) {
+							?>
 							<tr>
-								<td>1</td>
-								<td>CMS0904253R8</td>
-								<td>COMPU SOFTWARE, S.A. DE C.V.</td>
+								<td><?php echo $i; ?></td>
+								<td><?php echo $val->RFC; ?></td>
+								<td><?php echo $val->RAZONSOCIAL; ?></td>
+								<td class="text-center"><?php echo "2"; ?></td>
 								<td class="text-center">
 									<?php
-									if ( 1 == 1 ) {
+									if ( $val->ACTIVO == "S") {
 									?>
 									<span class="glyphicon glyphicon-ok text-success"></span>
 									<?php
@@ -86,10 +92,15 @@
 									?>
 								</td>
 								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil"></span> 
-									<span class="glyphicon glyphicon-trash"></span>
+									<span title="Agregar proveedor" data-toggle="tooltip" class="glyphicon glyphicon-user" data-proveedor="<?php echo $val->IDPROVEEDOR; ?>"></span> 
+									<span title="Editar" data-toggle="tooltip" class="glyphicon glyphicon-pencil" data-proveedor="<?php echo $val->IDPROVEEDOR; ?>"></span> 
+									<span title="Eliminar" data-toggle="tooltip" class="glyphicon glyphicon-trash" data-proveedor="<?php echo $val->IDPROVEEDOR; ?>"></span>
 								</td>
 							</tr>
+							<?php
+								$i++;
+							}
+							?>
 						</tbody>
 					</table>
 				</section>
@@ -97,3 +108,28 @@
 		</div>
 	</section>
 </section>
+
+<!-- Ventana modal para mensaje de confirmación -->
+<div class="modal fade" id="modalConf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<form id="formEliminar" name="formEliminar" method="post" action="<?php echo base_url('proveedores/eliminar'); ?>">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">¿Eliminar proveedor?</h4>
+				</div>
+				<div class="modal-body">
+					<p>¿Seguro que desea eliminar este proveedor?</p>
+					<input type="hidden" id="idProveedor" name="idProveedor" />
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Aceptar</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

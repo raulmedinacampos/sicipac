@@ -26,12 +26,16 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+							$i = 1;
+							foreach ( $puestos as $val ) {
+							?>
 							<tr>
-								<td>1</td>
-								<td>Jefe de departamento</td>
+								<td><?php echo $i; ?></td>
+								<td><?php echo $val->PUESTO; ?></td>
 								<td class="text-center">
 									<?php
-									if ( 1 == 1 ) {
+									if ( $val->ACTIVO == "S") {
 									?>
 									<span class="glyphicon glyphicon-ok text-success"></span>
 									<?php
@@ -43,10 +47,14 @@
 									?>
 								</td>
 								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil" data-puesto=""></span> 
-									<span class="glyphicon glyphicon-trash" data-puesto=""></span>
+									<span class="glyphicon glyphicon-pencil" data-puesto="<?php echo $val->IDPUESTO; ?>"></span> 
+									<span class="glyphicon glyphicon-trash" data-puesto="<?php echo $val->IDPUESTO; ?>"></span>
 								</td>
 							</tr>
+							<?php
+								$i++;
+							}
+							?>
 						</tbody>
 					</table>
 				</section>
@@ -58,7 +66,7 @@
 <!-- Ventana modal para mensaje de confirmación -->
 <div class="modal fade" id="modalConf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog modal-sm" role="document">
-		<form id="formEliminar" name="formEliminar" method="post" action="<?php echo base_url(''); ?>">
+		<form id="formEliminar" name="formEliminar" method="post" action="<?php echo base_url('configuracion/puestos-laborales/eliminar'); ?>">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"

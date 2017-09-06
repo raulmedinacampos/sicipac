@@ -1,7 +1,32 @@
+function Init() {
+	$("#registros").DataTable({
+		"fnDrawCallback": function(oSettings) {
+			// Muestra u oculta paginación
+			if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+				$(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+			}
+			
+			EditUnit();
+			DeleteUnit();
+	    },
+	    "oLanguage": {
+            "oPaginate": {
+	            "sPrevious": "&#171;",
+	            "sNext": "&#187;"
+		    },
+		    "sInfo": "Unidades _START_ de _END_ de un total de _TOTAL_",
+		    "sZeroRecords": "No se encontraron resultados"
+	    },
+	    "bLengthChange": false,
+		"pageLength": 15
+	});
+}
+
 function AddUnit() {
 	$("#btn-unidad").click(function(e) {
 		e.preventDefault();
 		
+		$("#modalUnidad #formUnidades").attr("action", "/configuracion/unidades/agregar");
 		$("#modalUnidad .modal-header .modal-title").html("Agregar unidad de medida");
 		$("#modalUnidad .modal-footer .btn-primary").html("Guardar");
 		
@@ -31,13 +56,14 @@ function EditUnit() {
 	$("#registros .glyphicon-pencil").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("leyenda");
+		var id = $(this).data("unidad");
 		
+		$("#modalUnidad #formUnidades").attr("action", "/configuracion/unidades/editar");
 		$("#modalUnidad .modal-header .modal-title").html("Editar unidad de medida");
 		$("#modalUnidad .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
-			"", 
+			"/configuracion/unidades/consultar", 
 			{"id": id}, 
 			function(data) {
 				try {
@@ -45,12 +71,13 @@ function EditUnit() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idUnidad);
-					$("#unidad").val(d.unidad);
-					$("#abreviatura").val(d.abreviatura);
+					d = d[0];
+					$("#hdnID").val(d.IDUNIDAD);
+					$("#unidad").val(d.UNIDAD);
+					$("#abreviatura").val(d.ABREVIATURA);
 					
 					$('input[name="activo"]').each(function() {
-						if ( $(this).val() == d.activo ) {
+						if ( $(this).val() == d.ACTIVO ) {
 							$(this).trigger("click");
 						}
 					});
@@ -103,6 +130,7 @@ function Validate() {
 }
 
 $(function() {
+	Init();
 	AddUnit();
 	EditUnit();
 	DeleteUnit();

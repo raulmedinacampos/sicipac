@@ -1,33 +1,37 @@
-function GetAddress() {
+function GetAddress(x = "") {
 	var m = "";
+	var municipios = "";
+	
+	if ( x != "" ) {
+		m = x;
+	} 
 	
 	$("#entidad").change(function() {
 		var entidad = $(this).val();
-		var municipios = "";
 		
 		municipios = '<option value="">Seleccione</option>';
 		
 		$.post(
-				"../direcciones/cargar-municipios", 
-				{"entidad": entidad}, 
-				function(data) {
-					try {
-						var d = jQuery.parseJSON(data);
-					} catch(e) {}
+			"../direcciones/cargar-municipios", 
+			{"entidad": entidad}, 
+			function(data) {
+				try {
+					var d = jQuery.parseJSON(data);
+				} catch(e) {}
+				
+				if ( d ) {
+					$.each(d, function(i, obj) {
+						municipios += '<option value="'+obj.IDMUNICIPIO+'"';
+						if ( obj.IDMUNICIPIO == m ) {
+							municipios += ' selected="selected"';
+						}
+						municipios += '>'+obj.MUNICIPIO+'</option>';
+					});
 					
-					if ( d ) {
-						$.each(d, function(i, obj) {
-							municipios += '<option value="'+obj.IDMUNICIPIO+'"';
-							if ( obj.IDMUNICIPIO == m ) {
-								municipios += ' selected="selected"';
-							}
-							municipios += '>'+obj.MUNICIPIO+'</option>';
-						});
-						
-						$("#municipio").html(municipios);
-					}
+					$("#municipio").html(municipios);
 				}
-			);
+			}
+		);
 	});
 	
 	$("#cp").keyup(function() {
@@ -47,7 +51,7 @@ function GetAddress() {
 					
 					if ( d ) {
 						var c = 0;
-						
+						$("#municipio option").prop("selected", false);
 						
 						$.each(d, function(i, obj) {
 							c++;
@@ -60,7 +64,8 @@ function GetAddress() {
 								$("#colonia").val("");
 								opt += '<li><a href="#">'+obj.COLONIA+'</a></li>';
 							}
-							
+							//alert(m);
+
 							m = obj.MUNICIPIO;
 							$("#entidad").val(obj.ENTIDAD).change();
 						});

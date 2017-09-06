@@ -1,8 +1,8 @@
 
-<!-- Ventana modal para unidades responsables -->
-<div class="modal fade" id="modalUnidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Ventana modal para proveedores -->
+<div class="modal fade" id="modalProveedor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
-		<form id="formUnidades" name="formUnidades" method="post" action="">
+		<form id="formProveedor" name="formProveedor" method="post" action="">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
@@ -14,20 +14,39 @@
 				<div class="modal-body">
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label>Clave:</label>
-							<input type="text" id="clave" name="clave" maxlength="6" class="form-control" placeholder="Clave de la unidad" />
+							<label>Tipo de contribuyente:</label>
+							<select id="tipoContribuyente" name="tipoContribuyente" class="form-control">
+								<option value="">Selecciona tipo</option>
+								<option value="pf">Persona física</option>
+								<option value="pm">Persona moral</option>
+							</select>
 							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
-						
 						<div class="form-group col-md-6">
-							<label>Siglas:</label>
-							<input type="text" id="siglas" name="siglas" maxlength="10" class="form-control" placeholder="Siglas de la unidad" />
+							<label>RFC:</label>
+							<input type="text" id="rfc" name="rfc" class="form-control" placeholder="Ingresa RFC" />
 						</div>
 					</div>
-					<div class="row">
+					<div class="row div-oculto p-fisica">
+						<div class="form-group col-md-6">
+							<label>Nombre:</label>
+							<input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingresa clave" />
+						</div>
+						<div class="form-group col-md-6">
+							<label>Apellido paterno:</label>
+							<input type="text" id="apPaterno" name="apPaterno" class="form-control" placeholder="Ingresa clave" />
+						</div>
+					</div>
+					<div class="row div-oculto p-fisica">
+						<div class="form-group col-md-6">
+							<label>Apellido materno:</label>
+							<input type="text" id="apMaterno" name="apMaterno" class="form-control" placeholder="Ingresa clave" />
+						</div>
+					</div>
+					<div class="row div-oculto p-moral">
 						<div class="form-group col-md-12">
-							<label>Nombre de la unidad responsable:</label>
-							<input type="text" id="unidad" name="unidad" class="form-control" placeholder="Ingresa el nombre de la unidad" />
+							<label>Razón social:</label>
+							<input type="text" id="razonSocial" name="razonSocial" class="form-control" placeholder="Ingresa clave" />
 						</div>
 					</div>
 					<div class="row">
@@ -75,7 +94,6 @@
 								?>
 							</select>
 						</div>
-						
 						<div class="form-group col-md-6">
 							<label>Delegación o municipio:</label>
 							<select id="municipio" name="municipio" class="form-control">

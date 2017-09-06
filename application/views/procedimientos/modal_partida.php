@@ -22,37 +22,38 @@
 					<!-- Paneles -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="p_generales">
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Partida número: 1</label>
-									</div>
-									<div class="col-md-6">
-										<label>Lote:</label>
-										<input type="text" class="form-control" placeholder="Ingresa lote" />
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>Partida número: 1</label>
+								</div>
+								<div class="form-group col-md-6">
+									<label>Lote:</label>
+									<input type="text" class="form-control" placeholder="Ingresa lote" />
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-12">
-										<label>Descripción corta:</label>
-										<input type="text" class="form-control" placeholder="Ingresa descripción" />
-									</div>
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label>Descripción corta:</label>
+									<input type="text" class="form-control" placeholder="Ingresa descripción" />
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Unidad:</label>
-										<select class="form-control">
-											<option value="">Selecciona unidad</option>
-										</select>
-									</div>
-									<div class="col-md-6">
-										<label>Cantidad:</label>
-										<input type="text" class="form-control" placeholder="Ingresa cantidad" />
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>Unidad:</label>
+									<select id="unidad" name="unidad" class="form-control">
+										<option value="">Seleccione</option>
+										<?php
+										foreach ( $medidas as $val ) {
+										?>
+										<option value="<?php echo $val->IDUNIDAD; ?>"><?php echo $val->UNIDAD; ?></option>
+										<?php
+										}
+										?>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<label>Cantidad:</label>
+									<input type="text" class="form-control" placeholder="Ingresa cantidad" />
 								</div>
 							</div>
 						</div>  <!-- Fin p_generales -->
@@ -60,28 +61,35 @@
 							<textarea class="form-control ckeditor" name="editor1" rows="6"></textarea>
 						</div>  <!-- Fin p_descripcion -->
 						<div role="tabpanel" class="tab-pane" id="p_localidades">
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Lugar / ECU's:</label>
-										<select class="form-control">
-											<option value="">Selecciona lugar</option>
-										</select>
-									</div>
-									<div class="col-md-6">
-										<label>Aula o taller:</label>
-										<input type="text" class="form-control" placeholder="Ingresa el aula o sala" />
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>Lugar / ECU's:</label>
+									<select id="escuela" name="escuela" class="form-control">
+										<option value="">Seleccione</option>
+										<?php
+										foreach ( $unidades as $val ) {
+										?>
+										<option value="<?php echo $val->IDUNIRESPONSABLE; ?>"><?php echo $val->UNIRESPONSABLE; ?></option>
+										<?php
+										}
+										?>
+									</select>
+								</div>
+								<div class="form-group col-md-6">
+									<label>Aula o taller:</label>
+									<input type="text" class="form-control" placeholder="Ingresa el aula o sala" />
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="row">
-									<div class="col-md-6">
-										<label>Cantidad total: 8</label>
-									</div>
-									<div class="col-md-6">
-										<button class="btn btn-default">Agregar</button>
-									</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label>Cantidad:</label>
+									<input type="text" class="form-control" placeholder="Ingresa el número de artículos" />
+								</div>
+								<div class="form-group col-md-6">
+									<label>Cantidad total: 8</label>
+								</div>
+								<div class="col-md-6">
+									<button class="btn btn-default">Agregar</button>
 								</div>
 							</div>
 							

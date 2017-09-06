@@ -16,6 +16,9 @@
 		}
 		
 		public function nuevo_procedimiento() {
+			$this->load->model('unidades_resp_md');
+			$this->load->model('unidades_md');
+			
 			$header["titulo"] = "Nuevo procedimiento";
 			$header["css"][] = "bootstrap-datetimepicker.min";
 			$header["css"][] = "fileinput.min";
@@ -29,7 +32,8 @@
 			$params['tipo_operacion'] = $this->procedimiento_md->GetOperationType();
 			$params['procedencia'] = $this->procedimiento_md->GetOrigenType();
 			$params['caracter_procedimiento'] = $this->procedimiento_md->getProcType();
-			$params['medida'] = $this->procedimiento_md->GetOrigenType();
+			$params["unidades"] = $this->unidades_resp_md->GetAllActives();
+			$params['medidas'] = $this->unidades_md->GetAllActives();
 			
 			$this->load->view('template/header', $header);
 			$this->load->view('template/menu');

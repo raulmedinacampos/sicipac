@@ -23,6 +23,13 @@
 							<label>Puesto:</label>
 							<select id="puesto" name="puesto" class="form-control">
 								<option value="">Seleccione</option>
+								<?php
+								foreach ( $puestos as $val ) {
+								?>
+								<option value="<?php echo $val->IDPUESTO; ?>"><?php echo $val->PUESTO; ?></option>
+								<?php
+								}
+								?>
 							</select>
 						</div>
 					</div>
@@ -31,6 +38,13 @@
 							<label>Área administrativa:</label>
 							<select id="area" name="area" class="form-control">
 								<option value="">Seleccione</option>
+								<?php
+								foreach ( $areas as $val ) {
+								?>
+								<option value="<?php echo $val->IDAREA; ?>"><?php echo $val->AREA; ?></option>
+								<?php
+								}
+								?>
 							</select>
 						</div>
 						
@@ -53,7 +67,7 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Extensión:</label>
-							<input type="text" id="extension" name="extension" class="form-control" placeholder="Extensión" />
+							<input type="text" id="extension" name="extension" maxlength="8" class="form-control" placeholder="Extensión" />
 						</div>
 						
 						<div class="form-group col-md-6">

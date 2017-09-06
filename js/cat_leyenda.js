@@ -1,7 +1,32 @@
+function Init() {
+	$("#registros").DataTable({
+		"fnDrawCallback": function(oSettings) {
+			// Muestra u oculta paginación
+			if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+				$(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+			}
+			
+			EditText();
+			DeleteText();
+	    },
+	    "oLanguage": {
+            "oPaginate": {
+	            "sPrevious": "&#171;",
+	            "sNext": "&#187;"
+		    },
+		    "sInfo": "Leyendas _START_ de _END_ de un total de _TOTAL_",
+		    "sZeroRecords": "No se encontraron resultados"
+	    },
+	    "bLengthChange": false,
+		"pageLength": 15
+	});
+}
+
 function AddText() {
 	$("#btn-leyenda").click(function(e) {
 		e.preventDefault();
 		
+		$("#modalLeyenda #formLeyendas").attr("action", "/configuracion/leyendas/agregar");
 		$("#modalLeyenda .modal-header .modal-title").html("Agregar leyenda");
 		$("#modalLeyenda .modal-footer .btn-primary").html("Guardar");
 		
@@ -33,11 +58,12 @@ function EditText() {
 		
 		var id = $(this).data("leyenda");
 		
+		$("#modalLeyenda #formLeyendas").attr("action", "/configuracion/leyendas/editar");
 		$("#modalLeyenda .modal-header .modal-title").html("Editar leyenda");
 		$("#modalLeyenda .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
-			"", 
+			"/configuracion/leyendas/consultar", 
 			{"id": id}, 
 			function(data) {
 				try {
@@ -45,13 +71,14 @@ function EditText() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idLeyenda);
-					$("#clave").val(d.clave);
-					$("#seccion").val(d.seccion);
-					$("#leyenda").val(d.leyenda);
+					d = d[0];
+					$("#hdnID").val(d.IDLEYENDA);
+					$("#clave").val(d.CLAVE);
+					$("#seccion").val(d.SECCION);
+					$("#leyenda").val(d.LEYENDA);
 					
 					$('input[name="activo"]').each(function() {
-						if ( $(this).val() == d.activo ) {
+						if ( $(this).val() == d.ACTIVO ) {
 							$(this).trigger("click");
 						}
 					});
@@ -112,6 +139,7 @@ function Validate() {
 }
 
 $(function() {
+	Init();
 	AddText();
 	EditText();
 	DeleteText();

@@ -17,7 +17,120 @@ function Init() {
 			$(".p-moral").css("display", "block");
 		}
 	});
+	
+	$("#fileDocumento").fileinput({
+		browseLabel: "Buscar"
+	});
 }
+
+function AddProv() {
+	$("#btn-usuario").click(function(e) {
+		e.preventDefault();
+		
+		$("#modalUsuario #formUsuarios").attr("action", "/configuracion/usuarios/agregar");
+		$("#modalUsuario .modal-header .modal-title").html("Agregar usuario");
+		$("#modalUsuario .modal-footer .btn-primary").html("Guardar");
+		
+		$('#modalUsuario .modal-body input[type="text"]').each(function() {
+			$(this).val("");
+		});
+		
+		$("#modalUsuario .modal-body textarea").each(function() {
+			$(this).val("");
+		});
+		
+		$("#modalUsuario .modal-body select").each(function() {
+			$(this).val("");
+		});
+		
+		$('input[name="activo"]').each(function() {
+			if ( $(this).val() == "S" ) {
+				$(this).trigger("click");
+			}
+		});
+		
+		$(".div-oculto").css("display", "none");
+		$(".div-btn-datos").css("display", "block");
+		
+		$("#modalUsuario").modal("show");
+	});
+}
+
+
+
+
+
+
+
+
+function EditProv() {
+	$("#registros .glyphicon-pencil").click(function(e) {
+		e.preventDefault();
+		
+		var id = $(this).data("proveedor");
+		
+		$("#modalProveedor #formProveedor").attr("action", "/proveedores/editar");
+		$("#modalProveedor .modal-header .modal-title").html("Editar proveedor");
+		$("#modalProveedor .modal-footer .btn-primary").html("Actualizar");
+		
+		$(".div-oculto").css("display", "block");
+		$(".div-btn-datos").css("display", "none");
+		
+		$.post(
+			"/proveedores/consultar-proveedor", 
+			{"id": id}, 
+			function(data) {
+				try {
+					var d = jQuery.parseJSON(data);
+				} catch(e) {}
+				
+				if ( d ) {
+					d = d[0];
+					
+					if ( d.TIPOCONTRIBUYENTE == "pf" ) {
+						$(".p-fisica").css("display", "block");
+						$(".p-moral").css("display", "none");
+					}
+					
+					if ( d.TIPOCONTRIBUYENTE == "pm" ) {
+						$(".p-fisica").css("display", "none");
+						$(".p-moral").css("display", "block");
+					}
+				
+					$("#hdnID").val(d.IDPROVEEDOR);
+					$("#tipoContribuyente").val(d.TIPOCONTRIBUYENTE);
+					$("#rfc").val(d.RFC);
+					$("#nombre").val(d.NOMBRE);
+					$("#apPaterno").val(d.APPATERNO);
+					$("#apMaterno").val(d.APMATERNO);
+					$("#razonSocial").val(d.RAZONSOCIAL);
+					$("#cp").val(d.CODIGOPOSTAL);
+					$("#colonia").val(d.COLONIA);
+					$("#calle").val(d.CALLE);
+					$("#numExt").val(d.NUMEXTERIOR);
+					$("#numInt").val(d.NUMINTERIOR);
+					
+					$("#entidad").val(d.ENTIDAD).change();
+					
+					GetAddress(d.MUNICIPIO);
+					
+					$('input[name="activo"]').each(function() {
+						if ( $(this).val() == d.ACTIVO ) {
+							$(this).trigger("click");
+						}
+					});
+				}
+			}
+		);
+		
+		$("#modalProveedor").modal("show");
+	});
+}
+
+
+
+
+
 
 function AddAgent() {
 	$("#btnNuevoRepresentante").click(function(e) {
@@ -129,6 +242,76 @@ function EditContact() {
 	});
 }
 
+function Validate() {
+	$("#formProveedores").validate({
+		errorElement: "span",
+		errorClass: "help-block",
+		errorPlacement: function(error, element) {
+			if ( element.parent(".input-group").length ) {
+				error.insertAfter(element.parent());
+			} else {
+				error.insertAfter(element);
+			}
+		},
+		highlight: function(element) {
+			$(element).closest(".form-group").addClass("has-error");
+		},
+		unhighlight: function(element) {
+			$(element).closest(".form-group").removeClass("has-error");
+		},
+		rules: {
+			tipoContribuyente: {
+				required: true
+			},
+			rfc: {
+				required: true,
+				minlength: function() {
+					if ( $("#tipoContribuyente").val() == "pf") {
+						return 13;
+					}
+					
+					if ( $("#tipoContribuyente").val() == "pm") {
+						return 12;
+					}
+				},
+				maxlength: function() {
+					if ( $("#tipoContribuyente").val() == "pf") {
+						return 13;
+					}
+					
+					if ( $("#tipoContribuyente").val() == "pm") {
+						return 12;
+					}
+				}
+			},
+			nombre: {
+				required: function() {
+					return $("#tipoContribuyente").val() == "pf";
+				}
+			},
+			razonSocial: {
+				required: function() {
+					return $("#tipoContribuyente").val() == "pm";
+				}
+			},
+			cp: {
+				digits: true
+			}
+		},
+		messages: {
+			tipoContribuyente: "Campo obligatorio",
+			rfc: {
+				required: "Campo obligatorio",
+				minlength: "Faltan caracteres",
+				maxlength: "Sobran caracteres",
+			},
+			nombre: "Campo obligatorio",
+			razonSocial: "Campo obligatorio",
+			cp: "Deben ser solo números"
+		}
+	});
+}
+
 $(function() {
 	Init();
 	AddAgent();
@@ -136,4 +319,6 @@ $(function() {
 	DeleteAgent();
 	AddContact();
 	EditContact();
+	AddProv();
+	Validate();
 });

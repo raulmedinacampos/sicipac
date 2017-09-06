@@ -1,7 +1,32 @@
+function Init() {
+	$("#registros").DataTable({
+		"fnDrawCallback": function(oSettings) {
+			// Muestra u oculta paginación
+			if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+				$(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+			}
+			
+			EditUnit();
+			DeleteUnit();
+	    },
+	    "oLanguage": {
+            "oPaginate": {
+	            "sPrevious": "&#171;",
+	            "sNext": "&#187;"
+		    },
+		    "sInfo": "Unidades _START_ de _END_ de un total de _TOTAL_",
+		    "sZeroRecords": "No se encontraron resultados"
+	    },
+	    "bLengthChange": false,
+		"pageLength": 15
+	});
+}
+
 function AddUnit() {
 	$("#btn-unidad").click(function(e) {
 		e.preventDefault();
 		
+		$("#modalUnidad #formUnidades").attr("action", "/configuracion/unidades-responsables/agregar");
 		$("#modalUnidad .modal-header .modal-title").html("Agregar unidad responsable");
 		$("#modalUnidad .modal-footer .btn-primary").html("Guardar");
 		
@@ -31,13 +56,14 @@ function EditUnit() {
 	$("#registros .glyphicon-pencil").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("leyenda");
+		var id = $(this).data("unidad");
 		
+		$("#modalUnidad #formUnidades").attr("action", "/configuracion/unidades-responsables/editar");
 		$("#modalUnidad .modal-header .modal-title").html("Editar unidad responsable");
 		$("#modalUnidad .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
-			"", 
+			"/configuracion/unidades-responsables/consultar", 
 			{"id": id}, 
 			function(data) {
 				try {
@@ -45,20 +71,23 @@ function EditUnit() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idUniResponsable);
-					$("#clave").val(d.clave);
-					$("#siglas").val(d.siglas);
-					$("#unidad").val(d.unidad);
-					$("#cp").val(d.codigoPostal);
-					$("#colonia").val(d.colonia);
-					$("#calle").val(d.calle);
-					$("#numExt").val(d.numExterior);
-					$("#numInt").val(d.numInterior);
-					$("#municipio").val(d.municipio);
-					$("#entidad").val(d.entidad);
+					d = d[0];
+					$("#hdnID").val(d.IDUNIRESPONSABLE);
+					$("#clave").val(d.CLAVE);
+					$("#siglas").val(d.SIGLAS);
+					$("#unidad").val(d.UNIRESPONSABLE);
+					$("#cp").val(d.CODIGOPOSTAL);
+					$("#colonia").val(d.COLONIA);
+					$("#calle").val(d.CALLE);
+					$("#numExt").val(d.NUMEXTERIOR);
+					$("#numInt").val(d.NUMINTERIOR);
+					
+					$("#entidad").val(d.ENTIDAD).change();
+					
+					GetAddress(d.MUNICIPIO);
 					
 					$('input[name="activo"]').each(function() {
-						if ( $(this).val() == d.activo ) {
+						if ( $(this).val() == d.ACTIVO ) {
 							$(this).trigger("click");
 						}
 					});
@@ -129,6 +158,7 @@ function Validate() {
 }
 
 $(function() {
+	Init();
 	AddUnit();
 	EditUnit();
 	DeleteUnit();

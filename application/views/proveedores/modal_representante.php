@@ -17,6 +17,13 @@
 							<label>Tipo de representante:</label>
 							<select id="tipo" name="tipo" class="form-control">
 								<option value="">Selecciona</option>
+								<?php
+								foreach ( $tipo_representante as $val ) {
+								?>
+								<option value="<?php echo $val->IDTIPOREPRESENTANTE; ?>"><?php echo $val->TIPOREPRESENTANTE; ?></option>
+								<?php
+								}
+								?>
 							</select>
 							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
@@ -129,7 +136,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Aceptar</button>
+					<button type="submit" class="btn btn-primary">Aceptar</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
 				</div>
 			</div>

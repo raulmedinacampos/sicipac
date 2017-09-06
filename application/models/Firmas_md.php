@@ -14,8 +14,7 @@ class Firmas_md extends CI_Model {
     }
     
     function GetAllAdmin() {
-		$this->db->where('ACTIVO', 'S');
-		$this->db->or_where('ACTIVO', 'N');
+    	$this->db->where('ACTIVO != ', 'E');
         $query = $this->db->get(self::tabla);
         return $query->result();
     }
@@ -27,15 +26,6 @@ class Firmas_md extends CI_Model {
     }
 	
     function InsertRecord($data) {
-        /*$this->TITULO   = $data[0];
-        $this->NOMBRE = $data[1];
-        $this->APPATERNO = $data[2];
-        $this->APMATERNO    = $data[3];
-        $this->FECHAINSERCION    = $data[4];
-        $this->USUARIOINSERTO    = $data[5];
-        $this->ACTIVO    = $data[6];*/
-        
-    	
     	$this->db->set('TITULO', $data[0]);
     	$this->db->set('NOMBRE', $data[1]);
     	$this->db->set('APPATERNO', $data[2]);
@@ -52,15 +42,6 @@ class Firmas_md extends CI_Model {
     }
 	
 	function UpdateRecord($data,$id) {
-        /*$this->TITULO   = $data[0];
-        $this->NOMBRE = $data[1];
-        $this->APPATERNO = $data[2];
-        $this->APMATERNO    = $data[3];
-        $this->FECHAMODIFICACION    = $data[4];
-        $this->USUARIOMODIFICO    = $data[5];
-        $this->ACTIVO    = $data[6];*/
-    	
-    	
     	$this->db->set('TITULO', $data[0]);
     	$this->db->set('NOMBRE', $data[1]);
     	$this->db->set('APPATERNO', $data[2]);

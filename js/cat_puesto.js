@@ -1,7 +1,32 @@
+function Init() {
+	$("#registros").DataTable({
+		"fnDrawCallback": function(oSettings) {
+			// Muestra u oculta paginación
+			if (oSettings._iDisplayLength >= oSettings.fnRecordsDisplay()) {
+				$(oSettings.nTableWrapper).find('.dataTables_paginate').hide();
+			}
+			
+			EditJob();
+			DeleteJob();
+	    },
+	    "oLanguage": {
+            "oPaginate": {
+	            "sPrevious": "&#171;",
+	            "sNext": "&#187;"
+		    },
+		    "sInfo": "Puestos laborales _START_ de _END_ de un total de _TOTAL_",
+		    "sZeroRecords": "No se encontraron resultados"
+	    },
+	    "bLengthChange": false,
+		"pageLength": 15
+	});
+}
+
 function AddJob() {
 	$("#btn-puesto").click(function(e) {
 		e.preventDefault();
 		
+		$("#modalPuesto #formPuestos").attr("action", "/configuracion/puestos-laborales/agregar");
 		$("#modalPuesto .modal-header .modal-title").html("Agregar puesto laboral");
 		$("#modalPuesto .modal-footer .btn-primary").html("Guardar");
 		
@@ -31,13 +56,14 @@ function EditJob() {
 	$("#registros .glyphicon-pencil").click(function(e) {
 		e.preventDefault();
 		
-		var id = $(this).data("leyenda");
+		var id = $(this).data("puesto");
 		
+		$("#modalPuesto #formPuestos").attr("action", "/configuracion/puestos-laborales/editar");
 		$("#modalPuesto .modal-header .modal-title").html("Editar puesto laboral");
 		$("#modalPuesto .modal-footer .btn-primary").html("Actualizar");
 		
 		$.post(
-			"", 
+			"/configuracion/puestos-laborales/consultar", 
 			{"id": id}, 
 			function(data) {
 				try {
@@ -45,11 +71,12 @@ function EditJob() {
 				} catch(e) {}
 				
 				if ( d ) {
-					$("#hdnID").val(d.idPuesto);
-					$("#puesto").val(d.puesto);
+					d = d[0];
+					$("#hdnID").val(d.IDPUESTO);
+					$("#puesto").val(d.PUESTO);
 					
 					$('input[name="activo"]').each(function() {
-						if ( $(this).val() == d.activo ) {
+						if ( $(this).val() == d.ACTIVO ) {
 							$(this).trigger("click");
 						}
 					});
@@ -102,6 +129,7 @@ function Validate() {
 }
 
 $(function() {
+	Init();
 	AddJob();
 	EditJob();
 	DeleteJob();

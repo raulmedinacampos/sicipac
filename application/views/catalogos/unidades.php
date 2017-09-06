@@ -27,13 +27,17 @@
 							</tr>
 						</thead>
 						<tbody>
+							<?php
+							$i = 1;
+							foreach ( $unidades as $val ) {
+							?>
 							<tr>
-								<td>1</td>
-								<td>pz</td>
-								<td>Pieza</td>
+								<td><?php echo $i; ?></td>
+								<td><?php echo $val->ABREVIATURA; ?></td>
+								<td><?php echo $val->UNIDAD; ?></td>
 								<td class="text-center">
 									<?php
-									if ( 1 == 1 ) {
+									if ( $val->ACTIVO == "S" ) {
 									?>
 									<span class="glyphicon glyphicon-ok text-success"></span>
 									<?php
@@ -45,10 +49,14 @@
 									?>
 								</td>
 								<td class="text-center">
-									<span class="glyphicon glyphicon-pencil" data-unidad=""></span> 
-									<span class="glyphicon glyphicon-trash" data-unidad=""></span>
+									<span class="glyphicon glyphicon-pencil" data-unidad="<?php echo $val->IDUNIDAD; ?>"></span> 
+									<span class="glyphicon glyphicon-trash" data-unidad="<?php echo $val->IDUNIDAD; ?>"></span>
 								</td>
 							</tr>
+							<?php
+								$i++;
+							}
+							?>
 						</tbody>
 					</table>
 				</section>
@@ -60,7 +68,7 @@
 <!-- Ventana modal para mensaje de confirmación -->
 <div class="modal fade" id="modalConf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog modal-sm" role="document">
-		<form id="formEliminar" name="formEliminar" method="post" action="<?php echo base_url(''); ?>">
+		<form id="formEliminar" name="formEliminar" method="post" action="<?php echo base_url('configuracion/unidades/eliminar'); ?>">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"

@@ -15,7 +15,7 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Título:</label>
-							<input type="text" id="titulo" name="titulo" class="form-control" placeholder="Dr., C.P., Lic., etc." />
+							<input type="text" id="titulo" name="titulo" maxlength="10" class="form-control" placeholder="Dr., C.P., Lic., etc." />
 							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
 						<div class="form-group col-md-6">

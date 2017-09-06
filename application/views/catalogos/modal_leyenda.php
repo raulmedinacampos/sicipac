@@ -15,12 +15,12 @@
 					<div class="row">
 						<div class="form-group col-md-6">
 							<label>Clave:</label>
-							<input type="text" id="clave" name="clave" class="form-control" placeholder="Identificador de la leyenda" />
+							<input type="text" id="clave" name="clave" maxlength="20" class="form-control" placeholder="Identificador de la leyenda" />
 							<input type="hidden" id="hdnID" name="hdnID" />
 						</div>
 						<div class="form-group col-md-6">
 							<label>Sección:</label>
-							<input type="text" id="seccion" name="seccion" class="form-control" placeholder="Sección a la que pertenece" />
+							<input type="text" id="seccion" name="seccion" maxlength="30" class="form-control" placeholder="Sección a la que pertenece" />
 						</div>
 					</div>
 					<div class="row">

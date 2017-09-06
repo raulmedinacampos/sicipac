@@ -21,173 +21,158 @@
 		<form method="post" action="">
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="generales">
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Tipo de operación:</label>
-								<select class="form-control">
-									<option value="">Selecciona tipo</option>
-									<?php
-									foreach ($tipo_operacion as $val) {
-									?>
-									<option value="<?php echo $val->IDTIPOLICITACION; ?>"><?php echo $val->TIPOLICITACION; ?></option>
-									<?php
-									}
-									?>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<label>Procedencia:</label>
-								<select class="form-control">
-									<option value="">Selecciona procedencia</option>
-									<?php
-									foreach ($procedencia as $val) {
-									?>
-									<option value="<?php echo $val->IDORIGEN; ?>"><?php echo $val->ORIGEN; ?></option>
-									<?php
-									}
-									?>
-								</select>
-							</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Tipo de operación:</label>
+							<select class="form-control">
+								<option value="">Selecciona tipo</option>
+								<?php
+								foreach ($tipo_operacion as $val) {
+								?>
+								<option value="<?php echo $val->IDTIPOLICITACION; ?>"><?php echo $val->TIPOLICITACION; ?></option>
+								<?php
+								}
+								?>
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Procedencia:</label>
+							<select class="form-control">
+								<option value="">Selecciona procedencia</option>
+								<?php
+								foreach ($procedencia as $val) {
+								?>
+								<option value="<?php echo $val->IDORIGEN; ?>"><?php echo $val->ORIGEN; ?></option>
+								<?php
+								}
+								?>
+							</select>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Caracter del procedimiento:</label>
-								<select class="form-control">
-									<option value="">Selecciona tipo</option>
-									<?php
-									foreach ($caracter_procedimiento as $val) {
-									?>
-									<option value="<?php echo $val->IDTIPOPROCEDIMIENTO; ?>"><?php echo $val->TIPOPROCEDIMIENTO; ?></option>
-									<?php
-									}
-									?>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<label>Número del procedimiento:</label>
-								<input type="text" class="form-control" placeholder="Ingresa clave" />
-							</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Caracter del procedimiento:</label>
+							<select class="form-control">
+								<option value="">Selecciona tipo</option>
+								<?php
+								foreach ($caracter_procedimiento as $val) {
+								?>
+								<option value="<?php echo $val->IDTIPOPROCEDIMIENTO; ?>"><?php echo $val->TIPOPROCEDIMIENTO; ?></option>
+								<?php
+								}
+								?>
+							</select>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Número del procedimiento:</label>
+							<input type="text" class="form-control" placeholder="Ingresa clave" />
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-12">
-								<label>Descripción del procedimiento:</label>
-								<input type="text" class="form-control" placeholder="Ingresa nombre" />
-							</div>
+					<div class="row">
+						<div class="form-group col-md-12">
+							<label>Descripción del procedimiento:</label>
+							<input type="text" class="form-control" placeholder="Ingresa nombre" />
 						</div>
 					</div>
 					
 					<hr class="estilo1" />
 					
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Fecha de invitación:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
-								</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Fecha de invitación:</label>
+							<div class="input-group date datepicker">
+								<input type="text" class="form-control" placeholder="Ingresa fecha" />
+								<div class="input-group-addon"><i class="icon_calendar"></i></div>
 							</div>
-							<div class="col-md-6">
-								<label>Fecha y hora de apertura:</label>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="input-group date datepicker">
-											<input type="text" class="form-control" placeholder="Ingresa fecha" />
-											<div class="input-group-addon"><i class="icon_calendar"></i></div>
-										</div>
+						</div>
+						<div class="col-md-6">
+							<label>Fecha y hora de apertura:</label>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<div class="input-group date datepicker">
+										<input type="text" class="form-control" placeholder="Ingresa fecha" />
+										<div class="input-group-addon"><i class="icon_calendar"></i></div>
 									</div>
-									<div class="col-md-6">
-										<div class="input-group date timepicker">
-											<input type="text" class="form-control" placeholder="Ingresa horario" />
-											<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
-										</div>
+								</div>
+								<div class="form-group col-md-6">
+									<div class="input-group date timepicker">
+										<input type="text" class="form-control" placeholder="Ingresa horario" />
+										<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Fecha y hora de fallo:</label>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="input-group date datepicker">
-											<input type="text" class="form-control" placeholder="Ingresa fecha" />
-											<div class="input-group-addon"><i class="icon_calendar"></i></div>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="input-group date timepicker">
-											<input type="text" class="form-control" placeholder="Ingresa horario" />
-											<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
-										</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label>Fecha y hora de fallo:</label>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<div class="input-group date datepicker">
+										<input type="text" class="form-control" placeholder="Ingresa fecha" />
+										<div class="input-group-addon"><i class="icon_calendar"></i></div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-6">
-								<label>Fecha de formalización:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
+								<div class="form-group col-md-6">
+									<div class="input-group date timepicker">
+										<input type="text" class="form-control" placeholder="Ingresa horario" />
+										<div class="input-group-addon"><i class="icon_clock_alt"></i></div>
+									</div>
 								</div>
 							</div>
 						</div>
+						<div class="form-group col-md-6">
+							<label>Fecha de formalización:</label>
+							<div class="input-group date datepicker">
+								<input type="text" class="form-control" placeholder="Ingresa fecha" />
+								<div class="input-group-addon"><i class="icon_calendar"></i></div>
+							</div>
+						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Período de ejecución del servicio:</label>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="input-group date datepicker">
-											<input type="text" class="form-control" placeholder="Ingresa fecha" />
-											<div class="input-group-addon"><i class="icon_calendar"></i></div>
-										</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label>Período de ejecución del servicio:</label>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<div class="input-group date datepicker">
+										<input type="text" class="form-control" placeholder="Ingresa fecha" />
+										<div class="input-group-addon"><i class="icon_calendar"></i></div>
 									</div>
-									<div class="col-md-6">
-										<div class="input-group date datepicker">
-											<input type="text" class="form-control" placeholder="Ingresa fecha" />
-											<div class="input-group-addon"><i class="icon_calendar"></i></div>
-										</div>
+								</div>
+								<div class="form-group col-md-6">
+									<div class="input-group date datepicker">
+										<input type="text" class="form-control" placeholder="Ingresa fecha" />
+										<div class="input-group-addon"><i class="icon_calendar"></i></div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>  <!-- Fin generales -->
+				
 				<div role="tabpanel" class="tab-pane" id="publicaciones">
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Publicación CompraNET:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
-								</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Publicación CompraNET:</label>
+							<div class="input-group date datepicker">
+								<input type="text" class="form-control" placeholder="Ingresa fecha" />
+								<div class="input-group-addon"><i class="icon_calendar"></i></div>
 							</div>
-							<div class="col-md-6">
-								<label>Publicación Diario Oficial:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
-								</div>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Publicación Diario Oficial:</label>
+							<div class="input-group date datepicker">
+								<input type="text" class="form-control" placeholder="Ingresa fecha" />
+								<div class="input-group-addon"><i class="icon_calendar"></i></div>
 							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6">
-								<label>Publicación página COFAA:</label>
-								<div class="input-group date datepicker">
-									<input type="text" class="form-control" placeholder="Ingresa fecha" />
-									<div class="input-group-addon"><i class="icon_calendar"></i></div>
-								</div>
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label>Publicación página COFAA:</label>
+							<div class="input-group date datepicker">
+								<input type="text" class="form-control" placeholder="Ingresa fecha" />
+								<div class="input-group-addon"><i class="icon_calendar"></i></div>
 							</div>
 						</div>
 					</div>
